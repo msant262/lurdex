@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-page="imprensa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5EFE6">
+<title>Lurdex Magazinne · Imprensa & Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Sora:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .hub-head { padding: var(--s-8) 0 var(--s-7); }
+  .hub-head h1 { font-size: clamp(48px, 11vw, 120px); line-height: 0.92; letter-spacing: -0.03em; }
+  .hub-head .lead { font-size: clamp(17px, 2.4vw, 21px); line-height: 1.55; max-width: 56ch; margin-top: var(--s-5); opacity: 0.82; }
+  .resources { display: grid; grid-template-columns: 1fr; gap: var(--s-5); padding-bottom: var(--s-8); }
+  .resource {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--s-5);
+    padding: var(--s-6);
+    background: var(--paper);
+    border-radius: 4px;
+    border: 1px solid var(--border-soft);
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .resource:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(42, 31, 56, 0.08); }
+  .resource .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--lilac-deep);
+  }
+  .resource h2 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.0;
+    margin: var(--s-3) 0 var(--s-4);
+    font-weight: 500;
+  }
+  .resource h2 em { font-style: italic; color: var(--lilac-deep); }
+  .resource p { font-size: 15px; line-height: 1.6; opacity: 0.85; margin-bottom: var(--s-4); }
+  .resource ul {
+    list-style: none; padding: 0; margin: 0 0 var(--s-4);
+    display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4);
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    opacity: 0.65;
+  }
+  .resource ul li::before { content: '◊'; margin-right: 6px; color: var(--lilac-deep); opacity: 0.8; }
+  .resource-meta {
+    margin-top: auto;
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--border-soft);
+    display: flex; gap: var(--s-3); align-items: center; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.6;
+  }
+  .press-strip { background: var(--cream-2); padding: var(--s-6) 0; }
+  .press-strip .row { display: grid; grid-template-columns: 1fr; gap: var(--s-5); align-items: start; }
+  .press-strip h3 { font-size: clamp(28px, 4vw, 40px); margin-bottom: var(--s-3); }
+  .press-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s-3); font-size: 14px; line-height: 1.6; }
+  .press-list strong { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.75; }
+  @media (min-width: 720px) {
+    .resources { grid-template-columns: repeat(2, 1fr); }
+    .resource { grid-template-columns: 1fr; }
+    .press-strip .row { grid-template-columns: 5fr 7fr; gap: var(--s-7); }
+  }
+  @media (min-width: 1024px) {
+    .resources { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header data-nav></header>
+
+<section class="hub-head">
+  <div class="container">
+    <nav class="crumbs"><a href="index.html">Início</a> · <span>Imprensa & Design System</span></nav>
+    <div class="eyebrow">Recursos da marca · MMXXVI</div>
+    <h1>Lurdex <em>Magazinne.</em><br>Pra quem escreve sobre nós.</h1>
+    <p class="lead">Manual da marca, design system completo e versão para impressão. Tudo o que imprensa, parceiros e estúdios precisam para representar a Lurdex de forma fiel — sem precisar pedir.</p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="resources">
+    <article class="resource">
+      <div>
+        <div class="num">01 · Apresentação</div>
+        <h2>Manual <em>da marca.</em></h2>
+        <p>Deck completo em treze atos: capa, manifesto, logotipo e variações, paleta, tipografia, componentes UI, padronagens, embalagem, cartões, feed do Instagram, pôsteres, encerramento.</p>
+        <ul>
+          <li>13 slides</li>
+          <li>Cormorant + Sora</li>
+          <li>Aubergine · Lilás · Creme</li>
+        </ul>
+      </div>
+      <div class="resource-meta">
+        <a class="btn btn-primary" href="brand/apresentacao.html">Abrir apresentação</a>
+        <span>~5 min de leitura</span>
+      </div>
+    </article>
+
+    <article class="resource">
+      <div>
+        <div class="num">02 · Documentação</div>
+        <h2>Design <em>system.</em></h2>
+        <p>Documentação visual completa: logotipo em cinco variações, paleta primária e sazonal, escala tipográfica, espaçamento e grid, componentes UI, iconografia, padronagens, voz, aplicações e regras de uso.</p>
+        <ul>
+          <li>12 seções</li>
+          <li>Tokens prontos</li>
+          <li>Do · Don't</li>
+        </ul>
+      </div>
+      <div class="resource-meta">
+        <a class="btn btn-primary" href="brand/design-system.html">Abrir design system</a>
+        <span>~12 min de leitura</span>
+      </div>
+    </article>
+
+    <article class="resource">
+      <div>
+        <div class="num">03 · PDF</div>
+        <h2>Versão para <em>impressão.</em></h2>
+        <p>O manual da marca formatado para impressão A4 ou exportação em PDF, com page-breaks corretos entre seções, alta resolução e tipografia ajustada para mídia impressa.</p>
+        <ul>
+          <li>A4 retrato</li>
+          <li>13 páginas</li>
+          <li>CTRL+P para PDF</li>
+        </ul>
+      </div>
+      <div class="resource-meta">
+        <a class="btn btn-primary" href="brand/apresentacao-print.html">Abrir versão print</a>
+        <span>imprimir → salvar como PDF</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="press-strip">
+  <div class="container">
+    <div class="row">
+      <div>
+        <div class="eyebrow">Contato</div>
+        <h3>Falando com <em>a imprensa.</em></h3>
+      </div>
+      <ul class="press-list">
+        <li><strong>Curadora · Maria de Lourdes</strong><br>contato@lurdexmagazinne.com.br</li>
+        <li><strong>Imprensa & parcerias</strong><br>imprensa@lurdexmagazinne.com.br</li>
+        <li><strong>Endereço</strong><br>São Paulo · Brasil · MMXXVI</li>
+        <li><strong>Redes</strong><br>@lurdex.magazinne · Instagram, Pinterest, TikTok</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" data-footer></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/partials.js"></script>
+<script src="assets/app.js"></script>
+
+</body>
+</html>

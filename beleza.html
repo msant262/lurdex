@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-page="beleza">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5EFE6">
+<title>Beleza — Lurdex Magazinne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Sora:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-cat="beleza">
+
+<header data-nav></header>
+
+<section class="page-head">
+  <div class="container">
+    <nav class="crumbs" aria-label="Trilha">
+      <a href="index.html">Início</a> · <span>Beleza</span>
+    </nav>
+    <div class="eyebrow" data-cat-num></div>
+    <h1 data-cat-title>Beleza</h1>
+    <p class="lead" data-cat-lead></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filters" data-filters>
+      <button class="filter-chip active" data-filter="all">Tudo</button>
+      <button class="filter-chip" data-filter="new">Novidades</button>
+      <button class="filter-chip" data-filter="bestseller">Mais vendidos</button>
+      <button class="filter-chip" data-filter="edicao">Edição XII</button>
+    </div>
+    <div class="products-grid" data-cat-grid></div>
+  </div>
+</section>
+
+<section class="section paper">
+  <div class="container">
+    <div class="feature reverse">
+      <div class="feature-text">
+        <div class="eyebrow" style="margin-bottom: var(--s-4);">Sobre o universo Beleza</div>
+        <h3>O toilette <em>como pausa.</em></h3>
+        <p>Skincare francês de pequenos laboratórios, perfumaria niche da Itália e ferramentas de toilette feitas em ateliês independentes. A coleção Beleza foi pensada para o momento que é só seu — o espelho, a água, a luz da manhã.</p>
+        <p style="margin-top: var(--s-3);">Cada peça vem com cartão escrito a mão pela nossa curadora, com a recomendação de uso.</p>
+        <a class="btn btn-secondary" style="margin-top: var(--s-5);" href="edicao-xii.html">Ver Edição XII</a>
+      </div>
+      <div class="feature-art" data-ai-img="editorial beauty still life photograph, amber glass serum bottle with glass dropper and ceramic dish with rose petals on dusty pink marble counter, soft window light, vogue beauty magazine aesthetic, portrait orientation, premium luxury skincare mood" data-ai-seed="beleza-feature" data-ai-w="1000" data-ai-h="1250" data-ai-tone="rose" data-ai-alt="Beleza — toilette"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" data-footer></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/partials.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/cat-page.js"></script>
+
+</body>
+</html>

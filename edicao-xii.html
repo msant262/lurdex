@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-page="edicoes">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2A1F38">
+<title>Edição XII · Outono — Lurdex Magazinne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Sora:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .ed-hero { padding: var(--s-7) 0 var(--s-9); color: var(--cream); position: relative; overflow: hidden; background: var(--aubergine); }
+  .ed-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .ed-hero-bg .img-wrap { width: 100%; height: 100%; }
+  .ed-hero-bg img { object-fit: cover; }
+  .ed-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(42,31,56,0.78), rgba(42,31,56,0.55) 40%, rgba(42,31,56,0.88) 100%); }
+  .ed-hero > .container { position: relative; z-index: 1; }
+  .ed-hero .num { font-family: var(--serif); font-style: italic; font-size: clamp(120px, 28vw, 320px); line-height: 0.85; color: var(--lilac-soft); }
+  .ed-hero h1 { color: var(--cream); font-size: clamp(48px, 12vw, 120px); line-height: 0.92; letter-spacing: -0.03em; }
+  .ed-hero h1 em { color: var(--lilac-soft); }
+  .ed-hero .lead { max-width: 56ch; font-size: clamp(16px, 2vw, 19px); line-height: 1.6; margin-top: var(--s-5); opacity: 0.88; }
+  .ed-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); margin-top: var(--s-6); padding-top: var(--s-5); border-top: 1px solid rgba(245,239,230,0.18); }
+  .ed-stats .lbl { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.7; margin-bottom: 6px; }
+  .ed-stats .val { font-family: var(--serif); font-size: clamp(32px, 5vw, 56px); }
+  .ed-letter { padding: var(--s-8) 0; }
+  .ed-letter blockquote { font-family: var(--serif); font-style: italic; font-size: clamp(24px, 4vw, 40px); line-height: 1.3; max-width: 28ch; margin: 0 auto var(--s-6); text-align: center; color: var(--aubergine); }
+  .ed-letter .sig { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.7; }
+  .ed-banner { padding: var(--s-7) 0; background: var(--cream-2); }
+  .ed-banner-grid { display: grid; grid-template-columns: 1fr; gap: var(--s-4); }
+  .ed-banner-tile { aspect-ratio: 4/3; border-radius: 4px; overflow: hidden; }
+  @media (min-width: 720px) { .ed-banner-grid { grid-template-columns: repeat(3, 1fr); } }
+</style>
+</head>
+<body>
+
+<header data-nav></header>
+
+<section class="ed-hero">
+  <div class="ed-hero-bg" data-ai-img="atmospheric editorial autumn magazine spread, soft focus dried pampas grass and amber light filtering through linen curtains, lilac and aubergine palette, vogue cover aesthetic, cinematic depth, premium luxury mood" data-ai-seed="ed-xii-hero" data-ai-w="1600" data-ai-h="900" data-ai-tone="lilac" data-ai-eager data-ai-alt="Edição XII — Outono"></div>
+  <div class="container">
+    <nav class="crumbs" style="color: var(--lilac-soft); margin-bottom: var(--s-4);">
+      <a href="index.html" style="color:inherit;">Início</a> · <a href="edicoes.html" style="color:inherit;">Edições</a> · <span>XII · Outono</span>
+    </nav>
+    <div class="eyebrow" style="color: var(--lilac-soft);">Edição corrente · Outono MMXXVI</div>
+    <div class="num">XII</div>
+    <h1>Outono,<br><em>como ritual.</em></h1>
+    <p class="lead">Doze peças escolhidas para o desacelerar do outono. Texturas mornas, paleta de fim de tarde, o ritual do chá retomado. Uma curadoria pensada como uma carta — para ser aberta com tempo.</p>
+    <div class="ed-stats">
+      <div><span class="lbl">Peças</span><span class="val">48</span></div>
+      <div><span class="lbl">Atelieres</span><span class="val">12</span></div>
+      <div><span class="lbl">Países</span><span class="val">7</span></div>
+    </div>
+    <div style="margin-top: var(--s-6); display: flex; gap: var(--s-3); flex-wrap: wrap;">
+      <a class="btn btn-light" href="#colecao">Ver a coleção</a>
+      <a class="btn btn-secondary" style="border-color: var(--cream); color: var(--cream);" href="manifesto.html">Ler manifesto</a>
+    </div>
+  </div>
+</section>
+
+<section class="ed-letter">
+  <div class="container narrow">
+    <div class="eyebrow" style="text-align:center;">Carta da curadora</div>
+    <blockquote>"O outono é a estação que pede objetos com peso. Não pelo material — pelo gesto que carregam."</blockquote>
+    <div class="sig">Maria de Lourdes · Maio MMXXVI</div>
+  </div>
+</section>
+
+<section class="ed-banner">
+  <div class="container">
+    <div class="eyebrow" style="text-align:center; margin-bottom: var(--s-5);">A capa em três atos</div>
+    <div class="ed-banner-grid">
+      <div class="ed-banner-tile" data-ai-img="editorial still life, single beeswax candle burning on cream linen with dried herbs and a small ceramic dish, lilac palette, soft golden hour light, vogue magazine aesthetic, premium luxury mood" data-ai-seed="banner-1" data-ai-w="800" data-ai-h="600" data-ai-tone="lilac" data-ai-alt="Acto 1"></div>
+      <div class="ed-banner-tile" data-ai-img="editorial still life, antique vintage table mirror with patinated bronze frame on dusty pink linen surface, fresh pink peonies, soft window light, vogue magazine aesthetic, premium luxury home" data-ai-seed="banner-2" data-ai-w="800" data-ai-h="600" data-ai-tone="rose" data-ai-alt="Acto 2"></div>
+      <div class="ed-banner-tile" data-ai-img="editorial still life, olive branches in a sage green ceramic vase next to a hand bound notebook with silk ribbon, on raw linen, soft afternoon light, vogue magazine aesthetic, premium luxury home" data-ai-seed="banner-3" data-ai-w="800" data-ai-h="600" data-ai-tone="sage" data-ai-alt="Acto 3"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="colecao">
+  <div class="container">
+    <div class="section-head">
+      <div class="row">
+        <div>
+          <div class="eyebrow">A coleção</div>
+          <h2>Doze peças, <em>doze gestos.</em></h2>
+        </div>
+        <a class="btn-ghost" href="produtos.html">Ver tudo</a>
+      </div>
+    </div>
+    <div class="products-grid" data-edicao-grid></div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="container">
+    <div class="eyebrow" style="color: var(--lilac); margin-bottom: var(--s-4);">Próxima edição</div>
+    <h2>Edição XIII <em>chega no inverno.</em></h2>
+    <p>Receba a carta da Edição XIII em primeira mão, com prévia da curadoria e acesso prioritário às peças numeradas.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); LURDEX.toast('Obrigada! Você está na lista.'); this.reset();">
+      <input type="email" required placeholder="seu@email.com.br" aria-label="Email">
+      <button class="btn btn-light" type="submit">Assinar</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer" data-footer></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/partials.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  // Show all products as "the collection"
+  LURDEX.renderProductGrid('[data-edicao-grid]', LURDEX.products);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-page="edicoes">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5EFE6">
+<title>Edições — Lurdex Magazinne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Sora:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .ed-list { display: grid; grid-template-columns: 1fr; gap: var(--s-5); }
+  .ed-card { display: grid; grid-template-columns: 1fr; gap: var(--s-5); padding: var(--s-5); border-radius: 4px; background: var(--paper); transition: transform var(--dur) var(--ease); }
+  .ed-card:hover { transform: translateY(-3px); }
+  .ed-card-art { aspect-ratio: 16/10; border-radius: 3px; overflow: hidden; }
+  .ed-card-num { font-family: var(--serif); font-style: italic; font-size: clamp(72px, 14vw, 140px); line-height: 0.85; color: var(--lilac-deep); }
+  .ed-card-title { font-family: var(--serif); font-size: clamp(32px, 5vw, 48px); line-height: 1; margin: var(--s-3) 0; }
+  .ed-card-stats { display: flex; gap: var(--s-5); margin-top: var(--s-4); padding-top: var(--s-4); border-top: 1px solid var(--border-soft); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+  .ed-card-stats .lbl { display:block; opacity: 0.6; margin-bottom: 2px; }
+  .ed-card-current { display: inline-block; padding: 6px 10px; border-radius: 999px; background: var(--lilac-deep); color: var(--cream); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: var(--s-3); }
+  @media (min-width: 720px) { .ed-card { grid-template-columns: 5fr 7fr; gap: var(--s-6); padding: var(--s-6); align-items:center; } }
+</style>
+</head>
+<body>
+
+<header data-nav></header>
+
+<section class="page-head">
+  <div class="container">
+    <nav class="crumbs"><a href="index.html">Início</a> · <span>Edições</span></nav>
+    <div class="eyebrow">Arquivo editorial</div>
+    <h1>Todas as <em>edições.</em></h1>
+    <p class="lead">A Lurdex publica uma edição por estação — uma curadoria selada, numerada e datada. Aqui ficam todas, das mais recentes às esgotadas.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="ed-list" data-editions></div>
+  </div>
+</section>
+
+<footer class="footer" data-footer></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/partials.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  const coverPrompts = {
+    xii: 'editorial autumn magazine cover, dried pampas grass in ceramic vase, warm tea cup, beeswax candle on cream linen, lilac and aubergine palette, soft golden afternoon light, vogue cover aesthetic',
+    xi:  'editorial summer magazine cover, sheer linen curtains, translucent green glass bottles with herbs, soft daylight, sage and cream palette, vogue cover aesthetic',
+    x:   'editorial spring magazine cover, fresh pink peonies in vintage porcelain vase, cream linen, soft window light, rose and cream palette, vogue cover aesthetic',
+    ix:  'editorial winter magazine cover, dark wood surface, deep burgundy velvet, vintage perfume bottle, dramatic moody candlelight, wine and aubergine palette, vogue cover aesthetic'
+  };
+  document.querySelector('[data-editions]').innerHTML = LURDEX.editions.map(ed => {
+    const prompt = coverPrompts[ed.slug] || ('editorial luxury magazine cover, ' + ed.title + ' season aesthetic, ' + ed.cover_tone + ' palette, soft light, vogue style');
+    return `
+    <article class="ed-card">
+      <a class="ed-card-art" href="edicao-${ed.slug}.html" style="display:block;" data-ai-img="${prompt}" data-ai-seed="edicao-${ed.slug}" data-ai-w="1200" data-ai-h="750" data-ai-tone="${ed.cover_tone}" data-ai-alt="Edição ${ed.num} · ${ed.title}"></a>
+      <div>
+        ${ed.current ? '<span class="ed-card-current">Edição atual</span>' : ''}
+        <div class="eyebrow">Edição ${ed.num}</div>
+        <div class="ed-card-num">${ed.num}</div>
+        <h2 class="ed-card-title">${ed.title}<br><em>${ed.subtitle}</em></h2>
+        <p style="opacity: 0.82; line-height: 1.6;">${ed.intro}</p>
+        <div class="ed-card-stats">
+          ${ed.stats.map(s => `<div><span class="lbl">${s.lbl}</span><span>${s.val}</span></div>`).join('')}
+        </div>
+        <div style="margin-top: var(--s-5);">
+          <a class="btn ${ed.current ? 'btn-primary' : 'btn-secondary'}" href="edicao-${ed.slug}.html">${ed.current ? 'Ver edição' : 'Arquivo'}</a>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+</script>
+
+</body>
+</html>

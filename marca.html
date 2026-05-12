@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-page="marca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5EFE6">
+<title>A Marca — Lurdex Magazinne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Sora:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .marca-hero { padding: var(--s-8) 0 var(--s-7); }
+  .marca-hero h1 { font-size: clamp(56px, 14vw, 180px); line-height: 0.88; letter-spacing: -0.04em; }
+  .marca-pillars { display: grid; grid-template-columns: 1fr; gap: var(--s-5); }
+  .marca-pillar { background: var(--paper); border-radius: 4px; border: 1px solid var(--border-soft); overflow: hidden; display: flex; flex-direction: column; }
+  .marca-pillar-art { aspect-ratio: 4/3; background: var(--cream-2); overflow: hidden; position: relative; }
+  .marca-pillar-body { padding: var(--s-5); }
+  .marca-pillar .num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lilac-deep); margin-bottom: var(--s-3); }
+  .marca-pillar h3 { font-size: clamp(28px, 5vw, 36px); margin-bottom: var(--s-3); }
+  .marca-pillar p { line-height: 1.65; opacity: 0.85; }
+  .marca-stats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-5); padding: var(--s-7) 0; text-align: center; }
+  .marca-stat .val { font-family: var(--serif); font-size: clamp(48px, 10vw, 96px); line-height: 1; color: var(--lilac-deep); }
+  .marca-stat .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 8px; opacity: 0.75; }
+  .marca-founder { display: grid; grid-template-columns: 1fr; gap: var(--s-6); align-items: center; }
+  .marca-founder-art { aspect-ratio: 4/5; border-radius: 4px; overflow: hidden; background: linear-gradient(160deg, var(--rose), var(--rose-deep)); }
+  @media (min-width: 720px) {
+    .marca-pillars { grid-template-columns: repeat(3, 1fr); }
+    .marca-stats { grid-template-columns: repeat(4, 1fr); }
+    .marca-founder { grid-template-columns: 4fr 8fr; gap: var(--s-8); }
+  }
+</style>
+</head>
+<body>
+
+<header data-nav></header>
+
+<section class="marca-hero">
+  <div class="container">
+    <nav class="crumbs"><a href="index.html">Início</a> · <span>A Marca</span></nav>
+    <div class="eyebrow">Fundada em MMXXVI · São Paulo</div>
+    <h1>L<em>u</em>rdex<br><em style="color: var(--lilac-deep);">Magazinne.</em></h1>
+    <p style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.55; max-width: 56ch; margin-top: var(--s-5); opacity: 0.85;">
+      Uma casa editorial de importados premium, fundada com a convicção de que o cotidiano merece o mesmo cuidado que reservamos às ocasiões especiais.
+    </p>
+  </div>
+</section>
+
+<section class="section paper">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Três pilares</div>
+        <h2>O que <em>nos move.</em></h2>
+      </div>
+    </div>
+    <div class="marca-pillars">
+      <article class="marca-pillar">
+        <div class="marca-pillar-art" data-ai-img="editorial documentary photograph, elegant hands gently inspecting handmade ceramic objects on a wooden workshop table in Tuscan atelier, warm afternoon light, lilac and cream palette, vogue magazine reportage aesthetic" data-ai-seed="pillar-curadoria" data-ai-w="900" data-ai-h="700" data-ai-tone="lilac" data-ai-alt="Curadoria"></div>
+        <div class="marca-pillar-body">
+          <div class="num">01 · Curadoria</div>
+          <h3>Uma peça <em>de cada vez.</em></h3>
+          <p>Não compramos atacado. Cada peça é escolhida ateliê por ateliê, em viagens à Toscana, à Provença, ao Porto. Recusamos catálogos prontos.</p>
+        </div>
+      </article>
+      <article class="marca-pillar">
+        <div class="marca-pillar-art" data-ai-img="editorial still life photograph, hands tying a cream silk ribbon on a wrapped gift box with red wax seal, dusty pink linen surface, soft natural daylight, vogue magazine aesthetic, premium luxury packaging close up" data-ai-seed="pillar-cuidado" data-ai-w="900" data-ai-h="700" data-ai-tone="rose" data-ai-alt="Cuidado"></div>
+        <div class="marca-pillar-body">
+          <div class="num">02 · Cuidado</div>
+          <h3>A embalagem <em>como cerimônia.</em></h3>
+          <p>Papel marfim, lacre em cera, cartão escrito à mão pela curadora. Cada caixa chega como se fosse parar guardada para sempre.</p>
+        </div>
+      </article>
+      <article class="marca-pillar">
+        <div class="marca-pillar-art" data-ai-img="editorial photograph of a handwritten card on cream paper resting on a wooden table next to a wax-sealed envelope and dried flowers, soft warm window light, vogue magazine aesthetic, premium intimate mood" data-ai-seed="pillar-acesso" data-ai-w="900" data-ai-h="700" data-ai-tone="cream" data-ai-alt="Acesso"></div>
+        <div class="marca-pillar-body">
+          <div class="num">03 · Acesso</div>
+          <h3>O premium, <em>sem o gelo.</em></h3>
+          <p>O importado bem-feito não precisa do frio de loja de aeroporto. Aqui ele chega com a recomendação da curadora, em uma carta.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="marca-founder">
+      <div class="marca-founder-art" data-ai-img="editorial portrait photograph of elegant Brazilian woman in her late 50s, soft natural beauty, cream silk blouse, holding a vintage porcelain teacup, sitting by a window with soft daylight, warm dusty pink and cream tones, vogue magazine portrait aesthetic, three quarter view, premium luxury mood" data-ai-seed="founder-portrait" data-ai-w="1000" data-ai-h="1250" data-ai-tone="rose" data-ai-alt="Maria de Lourdes — Fundadora"></div>
+      <div>
+        <div class="eyebrow">A fundadora</div>
+        <h2 style="font-size: clamp(36px, 6vw, 64px); margin: var(--s-3) 0;">Maria <em>de Lourdes.</em></h2>
+        <p style="font-size: 17px; line-height: 1.65; opacity: 0.85;">Maria de Lourdes começou a Lurdex em casa, embrulhando os primeiros pedidos na mesa da cozinha. A vontade era simples: levar para outras casas brasileiras o que ela trouxe na mala, peça a peça, das viagens dos últimos vinte anos.</p>
+        <p style="font-size: 17px; line-height: 1.65; opacity: 0.85; margin-top: var(--s-3);">"Comprar premium não é luxo. É uma forma de viver." É a frase que abre cada caixa.</p>
+        <div style="margin-top: var(--s-5); display: flex; gap: var(--s-3); flex-wrap: wrap;">
+          <a class="btn btn-secondary" href="manifesto.html">Ler manifesto completo</a>
+          <a class="btn-ghost" href="edicoes.html">Ver edições</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container">
+    <div class="marca-stats">
+      <div class="marca-stat"><div class="val">XII</div><div class="lbl">Edições publicadas</div></div>
+      <div class="marca-stat"><div class="val">2k+</div><div class="lbl">Casas atendidas</div></div>
+      <div class="marca-stat"><div class="val">12</div><div class="lbl">Atelieres parceiros</div></div>
+      <div class="marca-stat"><div class="val">7</div><div class="lbl">Países de origem</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" data-footer></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/partials.js"></script>
+<script src="assets/app.js"></script>
+
+</body>
+</html>

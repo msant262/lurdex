@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lurdex Magazinne — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Sora:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F5EFE6;
+  --cream-2: #EDE3D2;
+  --paper: #FBF7EF;
+  --ink: #1F1729;
+  --aubergine: #2A1F38;
+  --aubergine-2: #3D2F52;
+  --lilac: #B89AD6;
+  --lilac-deep: #8E6FB8;
+  --lilac-soft: #DCC9F0;
+  --lilac-pale: #EFE4FB;
+  --rose: #E8B4C8;
+  --rose-deep: #C97A98;
+  --sage: #A8C4A2;
+  --sage-deep: #6E9B72;
+  --wine: #8B2942;
+  --gold: #C9A65B;
+  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans:  'Sora', 'Helvetica Neue', sans-serif;
+  --mono:  'JetBrains Mono', ui-monospace, monospace;
+  --border: rgba(42,31,56,0.14);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--aubergine);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+}
+
+/* ========== SIDEBAR ========== */
+.side {
+  background: var(--aubergine);
+  color: var(--cream);
+  padding: 44px 36px;
+  position: sticky; top: 0; height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid var(--aubergine);
+}
+.side-brand {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 44px; line-height: 0.92; letter-spacing: -0.025em;
+}
+.side-brand em { font-style: italic; color: var(--lilac); }
+.side-brand .sub {
+  font-family: var(--sans); font-size: 9px;
+  letter-spacing: 0.5em; text-transform: uppercase;
+  margin-top: 8px; color: var(--lilac-soft);
+  font-style: normal; font-weight: 400;
+}
+.side-label {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--lilac); margin: 50px 0 18px;
+  font-weight: 500;
+}
+.side ul { list-style: none; }
+.side li {
+  margin-bottom: 4px;
+}
+.side a {
+  display: block; padding: 8px 0;
+  font-family: var(--sans); font-size: 13px;
+  font-weight: 300; color: var(--cream);
+  text-decoration: none; letter-spacing: 0.02em;
+  opacity: 0.7; transition: 0.2s;
+  border-bottom: 1px solid transparent;
+}
+.side a:hover {
+  opacity: 1; color: var(--lilac-soft);
+  padding-left: 8px;
+}
+.side .ver {
+  margin-top: 60px; padding-top: 24px;
+  border-top: 1px solid rgba(245,239,230,0.15);
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--lilac-soft); opacity: 0.7;
+  line-height: 1.7;
+}
+
+/* ========== MAIN ========== */
+main { min-width: 0; }
+
+.hero-ds {
+  padding: 90px 80px 70px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+}
+.eyebrow {
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: 0.5em; text-transform: uppercase;
+  color: var(--lilac-deep); font-weight: 500;
+}
+.eyebrow::before {
+  content: ''; display: inline-block;
+  width: 32px; height: 1px; background: var(--lilac-deep);
+  vertical-align: middle; margin-right: 12px;
+}
+.hero-ds h1 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 96px; line-height: 0.95; letter-spacing: -0.03em;
+  margin: 28px 0 24px;
+  max-width: 1100px;
+}
+.hero-ds h1 em { font-style: italic; color: var(--lilac-deep); }
+.hero-ds .meta {
+  display: flex; gap: 60px; margin-top: 40px;
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--aubergine);
+}
+.hero-ds .meta div { font-family: var(--serif); font-style: italic; font-size: 22px; letter-spacing: -0.01em; text-transform: none; }
+.hero-ds .meta .lbl { display: block; opacity: 0.65; margin-top: 4px; font-family: var(--sans); font-size: 10px; letter-spacing: 0.42em; font-style: normal; text-transform: uppercase; }
+
+section.block {
+  padding: 90px 80px;
+  border-bottom: 1px solid var(--border);
+}
+section.block.dark {
+  background: var(--aubergine); color: var(--cream);
+}
+section.block.dark h2 { color: var(--cream); }
+section.block.dark h2 em { color: var(--lilac); }
+section.block.alt { background: var(--cream-2); }
+
+.section-title {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: end; margin-bottom: 56px;
+}
+.section-title h2 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 72px; line-height: 0.98; letter-spacing: -0.025em;
+  margin-top: 18px;
+}
+.section-title h2 em { font-style: italic; color: var(--lilac-deep); }
+.section-title .desc {
+  font-family: var(--sans); font-size: 15px; line-height: 1.6;
+  opacity: 0.78; max-width: 480px;
+}
+
+/* ========== LOGO BLOCK ========== */
+.logo-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 18px;
+}
+.logo-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 50px 40px;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 280px;
+  position: relative;
+}
+.logo-card.dark { background: var(--aubergine); }
+.logo-card.lilac { background: var(--lilac); }
+.logo-card.rose { background: var(--rose); }
+.logo-card .tag {
+  position: absolute; top: 14px; left: 14px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--aubergine); opacity: 0.55;
+}
+.logo-card.dark .tag { color: var(--lilac-soft); }
+
+.logo-primary {
+  text-align: center;
+}
+.logo-primary .name {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 96px; line-height: 0.9; letter-spacing: -0.035em;
+  color: var(--aubergine);
+}
+.logo-primary .name em { font-style: italic; color: var(--lilac-deep); }
+.logo-primary .sub {
+  font-family: var(--sans); font-size: 13px;
+  letter-spacing: 0.62em; text-transform: uppercase;
+  margin-top: 10px; color: var(--aubergine);
+  font-weight: 400;
+}
+.logo-card.dark .logo-primary .name { color: var(--cream); }
+.logo-card.dark .logo-primary .name em { color: var(--lilac); }
+.logo-card.dark .logo-primary .sub { color: var(--lilac-soft); }
+
+.logo-monogram {
+  font-family: var(--serif); font-style: italic;
+  font-size: 130px; line-height: 1; letter-spacing: -0.03em;
+  color: var(--aubergine); position: relative;
+}
+.logo-card.dark .logo-monogram { color: var(--lilac); }
+
+.logo-seal { width: 200px; height: 200px; }
+
+/* ========== TYPE ========== */
+.type-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.type-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 40px;
+}
+.type-card .label {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 24px;
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--aubergine); opacity: 0.7; font-weight: 500;
+}
+.type-card .label .role {
+  background: var(--aubergine); color: var(--cream);
+  padding: 5px 12px; font-weight: 500;
+  letter-spacing: 0.2em;
+}
+.type-card .sample {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 84px; line-height: 0.95; letter-spacing: -0.025em;
+  color: var(--aubergine);
+}
+.type-card.sans .sample {
+  font-family: var(--sans); font-weight: 300;
+  font-size: 64px; letter-spacing: -0.02em; line-height: 1;
+}
+.type-card .meta {
+  margin-top: 24px; padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+.type-card .meta div { font-family: var(--mono); font-size: 11px; color: var(--aubergine); }
+.type-card .meta .k {
+  display: block; opacity: 0.55; font-family: var(--sans);
+  letter-spacing: 0.32em; text-transform: uppercase;
+  font-size: 9px; margin-bottom: 4px;
+}
+
+.type-scale {
+  margin-top: 50px;
+  background: var(--paper); border: 1px solid var(--border);
+}
+.type-scale-row {
+  display: grid; grid-template-columns: 90px 90px 1fr;
+  align-items: baseline; padding: 18px 32px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--serif); color: var(--aubergine);
+}
+.type-scale-row:last-child { border-bottom: none; }
+.type-scale-row .k {
+  font-family: var(--mono); font-size: 11px; opacity: 0.6;
+  letter-spacing: 0.2em; text-transform: uppercase;
+}
+.type-scale-row .px { font-family: var(--mono); font-size: 11px; opacity: 0.6; }
+.type-scale-row .ex { font-weight: 400; line-height: 1.1; }
+.type-scale-row .ex em { font-style: italic; color: var(--lilac-deep); }
+
+/* ========== COLORS ========== */
+.color-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  margin-bottom: 16px;
+}
+.color-row.r5 { grid-template-columns: repeat(5, 1fr); }
+.swatch {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.swatch .chip { height: 200px; position: relative; }
+.swatch .chip::after {
+  content: ''; position: absolute; top: 14px; right: 14px;
+  width: 36px; height: 36px; border: 1px solid currentColor;
+  opacity: 0.25; border-radius: 50%;
+}
+.swatch .info { padding: 22px 24px; }
+.swatch .role {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--lilac-deep); font-weight: 500;
+  margin-bottom: 8px;
+}
+.swatch .name {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 26px; letter-spacing: -0.01em;
+  line-height: 1.05; margin-bottom: 14px;
+}
+.swatch .name em { font-style: italic; color: var(--lilac-deep); }
+.swatch .codes {
+  display: grid; grid-template-columns: 1fr; gap: 4px;
+  font-family: var(--mono); font-size: 11px;
+  color: var(--aubergine); opacity: 0.75;
+  letter-spacing: 0.02em;
+}
+.swatch .codes span { display: block; }
+.swatch .codes span:first-child { color: var(--aubergine); opacity: 1; font-weight: 500; }
+
+/* ========== SPACING / GRID ========== */
+.spacing-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+}
+.spacing-card, .grid-card, .radius-card {
+  background: var(--paper); border: 1px solid var(--border);
+  padding: 36px;
+}
+.spacing-card .row {
+  display: grid; grid-template-columns: 60px 80px 1fr;
+  align-items: center; margin-bottom: 16px;
+}
+.spacing-card .row:last-child { margin-bottom: 0; }
+.spacing-card .k {
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--aubergine);
+}
+.spacing-card .v {
+  font-family: var(--mono); font-size: 12px; opacity: 0.6;
+}
+.spacing-card .bar {
+  height: 14px; background: var(--lilac);
+  border-left: 2px solid var(--aubergine);
+  border-right: 2px solid var(--aubergine);
+}
+
+.radius-card .ex {
+  display: flex; gap: 18px; align-items: end; margin-top: 22px;
+}
+.radius-card .ex div {
+  flex: 1; aspect-ratio: 1;
+  background: var(--lilac);
+  display: flex; align-items: end; padding: 12px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; color: var(--aubergine);
+}
+
+/* ========== COMPONENTS ========== */
+.comp-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+  margin-bottom: 18px;
+}
+.comp-card {
+  background: var(--paper); border: 1px solid var(--border);
+  padding: 40px;
+}
+.comp-card .label {
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--aubergine); opacity: 0.6; font-weight: 500;
+  margin-bottom: 24px;
+}
+.comp-card .row {
+  display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 16px;
+  align-items: center;
+}
+.comp-card .row:last-child { margin-bottom: 0; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-family: var(--sans); font-weight: 500;
+  font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+  padding: 14px 26px;
+  background: var(--aubergine); color: var(--cream);
+  border: 1px solid var(--aubergine);
+  text-decoration: none; cursor: pointer;
+  transition: 0.25s ease;
+}
+.btn:hover { background: var(--lilac-deep); border-color: var(--lilac-deep); }
+.btn.outline { background: transparent; color: var(--aubergine); }
+.btn.lilac { background: var(--lilac-deep); border-color: var(--lilac-deep); }
+.btn.rose { background: var(--rose-deep); border-color: var(--rose-deep); }
+.btn.cream { background: var(--cream); color: var(--aubergine); border-color: var(--aubergine); }
+.btn.text { background: transparent; border: none; padding: 6px 0; border-bottom: 1px solid currentColor; color: var(--aubergine); }
+.btn.sm { padding: 10px 18px; font-size: 10px; }
+.btn.lg { padding: 18px 36px; font-size: 13px; }
+
+/* Tags / pills */
+.tag {
+  display: inline-block;
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  padding: 6px 14px; font-weight: 500;
+}
+.tag.solid { background: var(--aubergine); color: var(--cream); }
+.tag.lilac { background: var(--lilac); color: var(--aubergine); }
+.tag.lilac-deep { background: var(--lilac-deep); color: var(--cream); }
+.tag.rose { background: var(--rose); color: var(--aubergine); }
+.tag.sage { background: var(--sage); color: var(--aubergine); }
+.tag.wine { background: var(--wine); color: var(--cream); }
+.tag.outline { background: transparent; color: var(--aubergine); border: 1px solid var(--aubergine); }
+.tag.round { border-radius: 999px; padding: 6px 16px; }
+
+/* Form */
+.field {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.field label {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--aubergine); opacity: 0.7; font-weight: 500;
+}
+.field input, .field select, .field textarea {
+  background: var(--cream);
+  border: 1px solid var(--aubergine);
+  padding: 14px 18px;
+  font-family: var(--sans); font-size: 14px;
+  color: var(--aubergine); outline: none;
+}
+.field input:focus { border-color: var(--lilac-deep); }
+.field-line input {
+  background: transparent; border: none;
+  border-bottom: 1px solid var(--aubergine);
+  padding: 12px 0; font-size: 16px;
+}
+
+/* Card */
+.prod-mini {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  max-width: 280px;
+}
+.prod-mini .img {
+  aspect-ratio: 1 / 1.1;
+  background: repeating-linear-gradient(45deg, var(--lilac-pale), var(--lilac-pale) 10px, var(--lilac-soft) 10px, var(--lilac-soft) 20px);
+  position: relative;
+}
+.prod-mini .img .ph {
+  position: absolute; inset: 50%; transform: translate(-50%,-50%);
+  background: var(--paper); padding: 8px 12px;
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--aubergine); opacity: 0.6;
+  width: max-content; height: max-content;
+}
+.prod-mini .info { padding: 20px 22px; }
+.prod-mini .cat {
+  font-family: var(--sans); font-size: 9px;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--lilac-deep); font-weight: 500;
+}
+.prod-mini .name {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 20px; line-height: 1.1; margin-top: 6px;
+}
+.prod-mini .name em { font-style: italic; color: var(--lilac-deep); }
+.prod-mini .price {
+  margin-top: 10px;
+  font-family: var(--serif); font-weight: 500; font-size: 18px;
+}
+
+/* ========== ICONOGRAPHY ========== */
+.icon-grid {
+  display: grid; grid-template-columns: repeat(8, 1fr); gap: 14px;
+}
+.icon-cell {
+  aspect-ratio: 1;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px;
+  font-family: var(--sans); font-size: 9px;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--aubergine); opacity: 0.85;
+}
+.icon-cell svg {
+  width: 32px; height: 32px;
+  stroke: var(--aubergine); stroke-width: 1.3; fill: none;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ========== PATTERNS ========== */
+.pattern-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+}
+.pat {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--border);
+  position: relative;
+}
+.pat .label {
+  position: absolute; bottom: 14px; left: 14px;
+  background: var(--cream); padding: 6px 12px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--aubergine);
+}
+.pat1 { background: repeating-linear-gradient(45deg, var(--lilac-pale), var(--lilac-pale) 16px, var(--lilac-soft) 16px, var(--lilac-soft) 32px); }
+.pat2 {
+  background:
+    radial-gradient(circle at 20% 30%, var(--lilac) 8%, transparent 9%),
+    radial-gradient(circle at 70% 60%, var(--rose) 6%, transparent 7%),
+    radial-gradient(circle at 40% 80%, var(--sage) 7%, transparent 8%),
+    radial-gradient(circle at 85% 20%, var(--aubergine) 5%, transparent 6%),
+    var(--cream);
+  background-size: 90px 90px;
+}
+.pat3 {
+  background: var(--aubergine);
+  background-image:
+    linear-gradient(var(--lilac-deep) 1px, transparent 1px),
+    linear-gradient(90deg, var(--lilac-deep) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.pat4 {
+  background: var(--lilac);
+  background-image: radial-gradient(circle, var(--aubergine) 1px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+.pat5 {
+  background:
+    repeating-linear-gradient(0deg, transparent 0, transparent 30px, var(--aubergine) 30px, var(--aubergine) 31px),
+    var(--cream);
+}
+.pat6 {
+  background:
+    conic-gradient(from 45deg at 50% 50%, var(--lilac), var(--rose), var(--sage), var(--lilac));
+  filter: blur(2px);
+}
+
+/* ========== VOICE ========== */
+.voice-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+}
+.voice-card {
+  background: var(--paper); border: 1px solid var(--border);
+  padding: 36px;
+}
+.voice-card.aub { background: var(--aubergine); color: var(--cream); border-color: var(--aubergine); }
+.voice-card .h {
+  font-family: var(--serif); font-style: italic;
+  font-size: 32px; letter-spacing: -0.01em;
+  color: var(--aubergine); margin-bottom: 18px;
+}
+.voice-card.aub .h { color: var(--lilac); }
+.voice-card .yn {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  font-weight: 600; margin-bottom: 12px;
+}
+.voice-card .yn.yes { color: var(--sage-deep); }
+.voice-card .yn.no { color: var(--wine); }
+.voice-card.aub .yn.yes { color: var(--sage); }
+.voice-card.aub .yn.no { color: var(--rose); }
+.voice-card ul { list-style: none; }
+.voice-card li {
+  font-family: var(--sans); font-size: 14px;
+  padding: 8px 0; line-height: 1.45;
+  border-top: 1px solid rgba(42,31,56,0.1);
+}
+.voice-card.aub li { border-top-color: rgba(245,239,230,0.18); }
+
+/* ========== APPLICATIONS ========== */
+.app-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px;
+}
+.app {
+  background: var(--paper); border: 1px solid var(--border);
+  aspect-ratio: 4 / 5;
+  position: relative; overflow: hidden;
+}
+.app .ph-label {
+  position: absolute; top: 16px; left: 16px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--aubergine); opacity: 0.6;
+  z-index: 5;
+}
+
+/* Business card */
+.bcard {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--lilac);
+}
+.bcard .face {
+  width: 280px; height: 170px;
+  background: var(--cream);
+  padding: 22px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 0 30px 50px -25px rgba(42,31,56,0.5);
+}
+.bcard .face .nm {
+  font-family: var(--serif); font-style: italic;
+  font-size: 26px; color: var(--aubergine); letter-spacing: -0.01em;
+}
+.bcard .face .nm em { font-style: normal; font-weight: 500; color: var(--lilac-deep); }
+.bcard .face .role {
+  font-family: var(--sans); font-size: 8px;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--aubergine); margin-top: 4px;
+}
+.bcard .face .det {
+  font-family: var(--mono); font-size: 8px;
+  letter-spacing: 0.15em; color: var(--aubergine);
+  line-height: 1.7;
+}
+
+/* Instagram tile */
+.igtile {
+  position: absolute; inset: 0;
+  background: var(--aubergine);
+  padding: 36px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  color: var(--cream);
+}
+.igtile .top {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--lilac);
+}
+.igtile h4 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 56px; line-height: 0.98; letter-spacing: -0.02em;
+}
+.igtile h4 em { font-style: italic; color: var(--lilac); }
+.igtile .ftr {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--lilac-soft);
+}
+
+/* Package label */
+.pkg {
+  position: absolute; inset: 0;
+  background: var(--cream-2);
+  display: flex; align-items: center; justify-content: center;
+}
+.pkg .box {
+  width: 220px; height: 280px;
+  background: var(--paper);
+  border: 1px solid var(--aubergine);
+  padding: 28px 22px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+.pkg .box::before {
+  content: ''; position: absolute; inset: 8px;
+  border: 1px solid var(--aubergine);
+  opacity: 0.25;
+}
+.pkg .box .ed {
+  font-family: var(--sans); font-size: 8px;
+  letter-spacing: 0.5em; text-transform: uppercase;
+  color: var(--aubergine);
+}
+.pkg .box .nm {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 38px; line-height: 0.9; letter-spacing: -0.025em;
+  color: var(--aubergine); text-align: center;
+}
+.pkg .box .nm em { font-style: italic; color: var(--lilac-deep); }
+.pkg .box .nm .sm {
+  display: block; font-size: 9px;
+  letter-spacing: 0.5em; text-transform: uppercase;
+  margin-top: 10px; font-family: var(--sans);
+  font-style: normal; font-weight: 400;
+}
+.pkg .box .ftr {
+  font-family: var(--mono); font-size: 8px;
+  letter-spacing: 0.15em; text-align: center;
+  color: var(--aubergine); line-height: 1.5;
+}
+
+/* ========== CLOSING ========== */
+.close-band {
+  background: var(--lilac);
+  padding: 130px 80px;
+  text-align: center;
+}
+.close-band h2 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 96px; line-height: 0.98; letter-spacing: -0.03em;
+  color: var(--aubergine);
+}
+.close-band h2 em { font-style: italic; color: var(--cream); }
+.close-band .by {
+  margin-top: 30px;
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: 0.5em; text-transform: uppercase;
+  color: var(--aubergine); opacity: 0.7;
+}
+
+.do-dont {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+}
+.dd {
+  background: var(--paper); border: 1px solid var(--border);
+  padding: 36px;
+}
+.dd .h {
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  font-weight: 600; margin-bottom: 20px;
+  padding-bottom: 14px; border-bottom: 1px solid var(--border);
+}
+.dd.do .h { color: var(--sage-deep); }
+.dd.dont .h { color: var(--wine); }
+.dd ul { list-style: none; }
+.dd li {
+  font-family: var(--sans); font-size: 14px; line-height: 1.55;
+  padding: 10px 0;
+  display: flex; gap: 12px;
+}
+.dd li::before {
+  content: '—'; color: var(--aubergine); opacity: 0.5;
+  flex-shrink: 0;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="side">
+  <div class="side-brand">
+    L<em>u</em>rdex
+    <div class="sub">M A G A Z I N N E</div>
+  </div>
+
+  <div class="side-label">Sumário</div>
+  <ul>
+    <li><a href="#intro">01 · Introdução</a></li>
+    <li><a href="#logo">02 · Logotipo</a></li>
+    <li><a href="#color">03 · Paleta de cores</a></li>
+    <li><a href="#type">04 · Tipografia</a></li>
+    <li><a href="#scale">05 · Escala tipográfica</a></li>
+    <li><a href="#space">06 · Espaçamento &amp; grid</a></li>
+    <li><a href="#comp">07 · Componentes UI</a></li>
+    <li><a href="#icons">08 · Iconografia</a></li>
+    <li><a href="#pattern">09 · Padronagens</a></li>
+    <li><a href="#voice">10 · Voz &amp; copy</a></li>
+    <li><a href="#apps">11 · Aplicações</a></li>
+    <li><a href="#rules">12 · Do &amp; Don't</a></li>
+  </ul>
+
+  <div class="side-label">Recursos</div>
+  <ul>
+    <li><a href="index.html">↩ Hub do projeto</a></li>
+    <li><a href="../index.html">→ Landing page</a></li>
+    <li><a href="apresentacao.html">→ Apresentação</a></li>
+  </ul>
+
+  <div class="ver">
+    Versão 1.0<br>
+    MMXXVI · SP, BR<br>
+    Curado por LM
+  </div>
+</aside>
+
+<!-- ===== MAIN ===== -->
+<main>
+
+<!-- HERO -->
+<section class="hero-ds" id="intro">
+  <div class="eyebrow">Design System · V 1.0</div>
+  <h1>O sistema visual da<br><em>Lurdex Magazinne.</em></h1>
+  <p style="max-width: 700px; font-size: 17px; line-height: 1.6; opacity: 0.78; margin-top: 8px;">Este é o guia completo para construir a marca em qualquer ponto de contato — do feed do Instagram à embalagem, do site ao cartão de visita. Cada token, cada componente, cada decisão foi pensada para sustentar uma única promessa: trazer o extraordinário, importado, para a casa do cliente.</p>
+
+  <div class="meta">
+    <div>
+      MMXXVI
+      <span class="lbl">Estabelecida</span>
+    </div>
+    <div>
+      6 famílias
+      <span class="lbl">de cores</span>
+    </div>
+    <div>
+      2 tipos
+      <span class="lbl">tipográficos</span>
+    </div>
+    <div>
+      12 componentes
+      <span class="lbl">de UI</span>
+    </div>
+    <div>
+      São Paulo
+      <span class="lbl">Brasil</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOGO ===== -->
+<section class="block" id="logo">
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">02 · Logotipo</div>
+      <h2>O <em>monograma</em><br>e suas vozes.</h2>
+    </div>
+    <div class="desc">O logotipo da Lurdex é um wordmark editorial em Cormorant Garamond, com o "u" em itálico — um pequeno gesto que assina a marca. Use sempre acompanhado da assinatura "MAGAZINNE" em sans-serif com tracking aberto. Quatro variações cobrem todos os contextos.</div>
+  </div>
+
+  <div class="logo-grid">
+    <div class="logo-card">
+      <span class="tag">01 · Principal · Wordmark</span>
+      <div class="logo-primary">
+        <div class="name">L<em>u</em>rdex</div>
+        <div class="sub">M A G A Z I N N E</div>
+      </div>
+    </div>
+
+    <div class="logo-card dark">
+      <span class="tag">02 · Invertido</span>
+      <div class="logo-primary">
+        <div class="name">L<em>u</em>rdex</div>
+        <div class="sub">M A G A Z I N N E</div>
+      </div>
+    </div>
+
+    <div class="logo-card lilac">
+      <span class="tag">03 · Monograma</span>
+      <div class="logo-monogram">L<span style="font-style: italic; color: var(--cream);">u</span></div>
+    </div>
+
+    <div class="logo-card">
+      <span class="tag">04 · Selo circular</span>
+      <svg class="logo-seal" viewBox="0 0 200 200">
+        <defs>
+          <path id="st" d="M 24,100 A 76,76 0 0,1 176,100"/>
+          <path id="sb" d="M 24,100 A 76,76 0 0,0 176,100"/>
+        </defs>
+        <circle cx="100" cy="100" r="86" fill="none" stroke="#2A1F38" stroke-width="0.8"/>
+        <circle cx="100" cy="100" r="74" fill="none" stroke="#2A1F38" stroke-width="0.4"/>
+        <circle cx="100" cy="100" r="50" fill="#2A1F38" opacity="0.05"/>
+        <text font-family="Sora" font-size="8" fill="#2A1F38" letter-spacing="4" font-weight="500">
+          <textPath href="#st" startOffset="50%" text-anchor="middle">LURDEX MAGAZINNE</textPath>
+        </text>
+        <text font-family="Sora" font-size="7" fill="#2A1F38" letter-spacing="4">
+          <textPath href="#sb" startOffset="50%" text-anchor="middle">· PREMIUM · MMXXVI ·</textPath>
+        </text>
+        <text x="100" y="112" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="52" fill="#2A1F38">LM</text>
+      </svg>
+    </div>
+
+    <div class="logo-card rose" style="grid-column: span 2;">
+      <span class="tag">05 · Lockup horizontal</span>
+      <div style="display: flex; align-items: center; gap: 36px;">
+        <div style="font-family: var(--serif); font-weight: 500; font-size: 88px; line-height: 1; letter-spacing: -0.035em; color: var(--aubergine);">
+          L<em style="font-style: italic; color: var(--cream);">u</em>rdex
+        </div>
+        <div style="width: 1px; height: 56px; background: var(--aubergine); opacity: 0.5;"></div>
+        <div style="font-family: var(--sans); font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--aubergine); line-height: 1.6;">
+          Magazinne<br>Premium · MMXXVI
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COLORS ===== -->
+<section class="block alt" id="color">
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">03 · Paleta</div>
+      <h2>Seis famílias,<br>uma <em>conversa.</em></h2>
+    </div>
+    <div class="desc">A paleta gira em torno de uma tríade: berinjela profunda como tinta principal, lilás como pulsar editorial, e creme como respiro. Rosa, salva e vinho entram como acentos sazonais. Sempre alta saturação no aubergine, baixa em tudo mais — para sustentar o tom premium.</div>
+  </div>
+
+  <!-- Primárias -->
+  <h3 style="font-family: var(--serif); font-style: italic; font-size: 28px; margin-bottom: 18px; color: var(--aubergine);">Primárias</h3>
+  <div class="color-row">
+    <div class="swatch">
+      <div class="chip" style="background: var(--aubergine); color: var(--cream);"></div>
+      <div class="info">
+        <div class="role">Tinta principal · 60%</div>
+        <div class="name">Aubergine <em>Royal</em></div>
+        <div class="codes">
+          <span>#2A1F38</span>
+          <span>RGB 42 · 31 · 56</span>
+          <span>CMYK 80 · 80 · 45 · 65</span>
+          <span>PANTONE 5255 C</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="chip" style="background: var(--lilac); color: var(--aubergine);"></div>
+      <div class="info">
+        <div class="role">Acento · 25%</div>
+        <div class="name">Lilás <em>Premium</em></div>
+        <div class="codes">
+          <span>#B89AD6</span>
+          <span>RGB 184 · 154 · 214</span>
+          <span>CMYK 25 · 35 · 0 · 0</span>
+          <span>PANTONE 522 C</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="chip" style="background: var(--cream); color: var(--aubergine); border-bottom: 1px solid var(--border);"></div>
+      <div class="info">
+        <div class="role">Suporte · 15%</div>
+        <div class="name">Creme <em>Magazinne</em></div>
+        <div class="codes">
+          <span>#F5EFE6</span>
+          <span>RGB 245 · 239 · 230</span>
+          <span>CMYK 3 · 4 · 8 · 0</span>
+          <span>PANTONE 9184 C</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="chip" style="background: var(--lilac-deep); color: var(--cream);"></div>
+      <div class="info">
+        <div class="role">Acento profundo</div>
+        <div class="name">Lilás <em>Imperial</em></div>
+        <div class="codes">
+          <span>#8E6FB8</span>
+          <span>RGB 142 · 111 · 184</span>
+          <span>CMYK 50 · 60 · 0 · 0</span>
+          <span>PANTONE 2655 C</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Acentos -->
+  <h3 style="font-family: var(--serif); font-style: italic; font-size: 28px; margin: 40px 0 18px; color: var(--aubergine);">Acentos sazonais</h3>
+  <div class="color-row r5">
+    <div class="swatch">
+      <div class="chip" style="background: var(--rose);"></div>
+      <div class="info">
+        <div class="role">Beleza · Acessórios</div>
+        <div class="name">Rosa <em>antigo</em></div>
+        <div class="codes">
+          <span>#E8B4C8</span>
+          <span>RGB 232 · 180 · 200</span>
+        </div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background: var(--rose-deep); color: var(--cream);"></div>
+      <div class="info">
+        <div class="role">Acento alerta</div>
+        <div class="name">Rosa <em>profundo</em></div>
+        <div class="codes">
+          <span>#C97A98</span>
+          <span>RGB 201 · 122 · 152</span>
+        </div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background: var(--sage);"></div>
+      <div class="info">
+        <div class="role">Casa · Cuidados</div>
+        <div class="name">Salva <em>suave</em></div>
+        <div class="codes">
+          <span>#A8C4A2</span>
+          <span>RGB 168 · 196 · 162</span>
+        </div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background: var(--wine); color: var(--cream);"></div>
+      <div class="info">
+        <div class="role">Edições limitadas</div>
+        <div class="name">Vinho <em>profundo</em></div>
+        <div class="codes">
+          <span>#8B2942</span>
+          <span>RGB 139 · 41 · 66</span>
+        </div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background: var(--gold); color: var(--aubergine);"></div>
+      <div class="info">
+        <div class="role">Detalhe metálico</div>
+        <div class="name">Ouro <em>antigo</em></div>
+        <div class="codes">
+          <span>#C9A65B</span>
+          <span>RGB 201 · 166 · 91</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Escala neutra -->
+  <h3 style="font-family: var(--serif); font-style: italic; font-size: 28px; margin: 40px 0 18px; color: var(--aubergine);">Escala neutra</h3>
+  <div style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px;">
+    <div style="aspect-ratio: 1; background: #FBF7EF; padding: 14px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--aubergine); border: 1px solid var(--border);">
+      <div style="font-weight: 600;">PAPEL</div>
+      <div style="opacity: 0.6; margin-top: 2px;">#FBF7EF</div>
+    </div>
+    <div style="aspect-ratio: 1; background: #F5EFE6; padding: 14px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--aubergine);">
+      <div style="font-weight: 600;">CREME</div>
+      <div style="opacity: 0.6; margin-top: 2px;">#F5EFE6</div>
+    </div>
+    <div style="aspect-ratio: 1; background: #EDE3D2; padding: 14px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--aubergine);">
+      <div style="font-weight: 600;">CREME 2</div>
+      <div style="opacity: 0.6; margin-top: 2px;">#EDE3D2</div>
+    </div>
+    <div style="aspect-ratio: 1; background: #C9BFB0; padding: 14px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--aubergine);">
+      <div style="font-weight: 600;">PEDRA</div>
+      <div style="opacity: 0.6; margin-top: 2px;">#C9BFB0</div>
+    </div>
+    <div style="aspect-ratio: 1; background: #8A7F8E; padding: 14px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--cream);">
+      <div style="font-weight: 600;">FUMAÇA</div>
+      <div style="opacity: 0.7; margin-top: 2px;">#8A7F8E</div>
+    </div>
+    <div style="aspect-ratio: 1; background: #3D2F52; padding: 14px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--cream);">
+      <div style="font-weight: 600;">AUBERGINE 2</div>
+      <div style="opacity: 0.7; margin-top: 2px;">#3D2F52</div>
+    </div>
+    <div style="aspect-ratio: 1; background: #2A1F38; padding: 14px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--cream);">
+      <div style="font-weight: 600;">AUBERGINE</div>
+      <div style="opacity: 0.7; margin-top: 2px;">#2A1F38</div>
+    </div>
+    <div style="aspect-ratio: 1; background: #1F1729; padding: 14px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--cream);">
+      <div style="font-weight: 600;">TINTA</div>
+      <div style="opacity: 0.7; margin-top: 2px;">#1F1729</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TYPE ===== -->
+<section class="block" id="type">
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">04 · Tipografia</div>
+      <h2>Cormorant <em>+</em> Sora.</h2>
+    </div>
+    <div class="desc">Uma serifa display editorial em diálogo com uma sans-serif moderna. Cormorant Garamond carrega o tom premium nos títulos e itálicos. Sora dá ordem ao texto corrido, legendas e UI. Use o itálico de Cormorant como assinatura — não como ênfase repetida.</div>
+  </div>
+
+  <div class="type-grid">
+    <div class="type-card">
+      <div class="label">
+        Display · Editorial
+        <span class="role">A</span>
+      </div>
+      <div class="sample">Cormorant <em style="font-style: italic;">Garamond</em></div>
+      <div class="meta">
+        <div><span class="k">Família</span>Cormorant Garamond</div>
+        <div><span class="k">Pesos</span>400 · 500 · 600 · 700</div>
+        <div><span class="k">Itálico</span>Sim · usar com cautela</div>
+        <div><span class="k">Aplicação</span>H1 · H2 · H3 · destaques</div>
+      </div>
+    </div>
+
+    <div class="type-card sans">
+      <div class="label">
+        Sans-Serif · Corpo
+        <span class="role">B</span>
+      </div>
+      <div class="sample">Sora.</div>
+      <div class="meta">
+        <div><span class="k">Família</span>Sora</div>
+        <div><span class="k">Pesos</span>200 · 300 · 400 · 500 · 600</div>
+        <div><span class="k">Tracking</span>0.02em a 0.5em</div>
+        <div><span class="k">Aplicação</span>Corpo · UI · legendas · CAIXA ALTA</div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-family: var(--sans); font-size: 13px; opacity: 0.65; margin-top: 30px; max-width: 700px;">Mono opcional: <strong style="font-family: var(--mono);">JetBrains Mono</strong> · usado em legendas técnicas, códigos PANTONE, ano em algarismos romanos, anotações editoriais.</p>
+</section>
+
+<!-- ===== TYPE SCALE ===== -->
+<section class="block alt" id="scale">
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">05 · Escala tipográfica</div>
+      <h2>Sistema de <em>tamanhos.</em></h2>
+    </div>
+    <div class="desc">Uma escala modular com proporção próxima de 1.25, otimizada para web e impresso. Mantenha sempre line-height generoso (1.5 a 1.6 em corpo). Em títulos, aperte para 0.95.</div>
+  </div>
+
+  <div class="type-scale">
+    <div class="type-scale-row">
+      <span class="k">D1</span><span class="px">96 / 144 px</span>
+      <span class="ex" style="font-size: 84px;">A casa, <em>importada.</em></span>
+    </div>
+    <div class="type-scale-row">
+      <span class="k">D2</span><span class="px">72 / 88 px</span>
+      <span class="ex" style="font-size: 64px;">O mundo, dentro de <em>casa.</em></span>
+    </div>
+    <div class="type-scale-row">
+      <span class="k">H1</span><span class="px">56 / 64 px</span>
+      <span class="ex" style="font-size: 52px;">Coleção <em>Hangzhou</em> · Edição XII</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="k">H2</span><span class="px">40 / 44 px</span>
+      <span class="ex" style="font-size: 36px;">Manifesto da curadoria</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="k">H3</span><span class="px">28 / 32 px</span>
+      <span class="ex" style="font-size: 26px;">Mesa posta · Casa &amp; decoração</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="k">H4</span><span class="px">20 / 24 px</span>
+      <span class="ex" style="font-size: 19px;">Nomes de produto, títulos de cards</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="k">Body</span><span class="px">16 / 17 px</span>
+      <span class="ex" style="font-family: var(--sans); font-size: 16px; font-weight: 300;">Corpo de texto em Sora 300 — leitura confortável em parágrafos longos. Use line-height 1.55 a 1.6.</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="k">Caption</span><span class="px">13 / 14 px</span>
+      <span class="ex" style="font-family: var(--sans); font-size: 13px; font-weight: 300;">Legendas, descrições de produto, notas de rodapé.</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="k">Eyebrow</span><span class="px">11 / 12 px</span>
+      <span class="ex" style="font-family: var(--sans); font-size: 11px; letter-spacing: 0.5em; text-transform: uppercase; color: var(--lilac-deep); font-weight: 500;">SEÇÕES · EYEBROWS · MICRO</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPACING / GRID / RADIUS ===== -->
+<section class="block" id="space">
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">06 · Espaçamento &amp; grid</div>
+      <h2>Ritmo <em>de 8.</em></h2>
+    </div>
+    <div class="desc">Tudo na Lurdex se mede em múltiplos de 8 (com meio-passo de 4). Grid de 12 colunas em desktop, 4 em mobile. Bordas vivas, sem rounded corners excessivos — o premium aqui vem da precisão, não do soft.</div>
+  </div>
+
+  <div class="spacing-grid">
+    <div class="spacing-card">
+      <div style="font-family: var(--sans); font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--aubergine); opacity: 0.6; margin-bottom: 24px; font-weight: 500;">Escala de espaçamento</div>
+      <div class="row"><span class="k">2xs</span><span class="v">4 px</span><span class="bar" style="width: 4px;"></span></div>
+      <div class="row"><span class="k">xs</span><span class="v">8 px</span><span class="bar" style="width: 8px;"></span></div>
+      <div class="row"><span class="k">sm</span><span class="v">16 px</span><span class="bar" style="width: 16px;"></span></div>
+      <div class="row"><span class="k">md</span><span class="v">24 px</span><span class="bar" style="width: 24px;"></span></div>
+      <div class="row"><span class="k">lg</span><span class="v">40 px</span><span class="bar" style="width: 40px;"></span></div>
+      <div class="row"><span class="k">xl</span><span class="v">64 px</span><span class="bar" style="width: 64px;"></span></div>
+      <div class="row"><span class="k">2xl</span><span class="v">96 px</span><span class="bar" style="width: 96px;"></span></div>
+      <div class="row"><span class="k">3xl</span><span class="v">144 px</span><span class="bar" style="width: 144px;"></span></div>
+    </div>
+
+    <div>
+      <div class="radius-card" style="margin-bottom: 18px;">
+        <div style="font-family: var(--sans); font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--aubergine); opacity: 0.6; font-weight: 500;">Border radius</div>
+        <p style="font-family: var(--sans); font-size: 13px; opacity: 0.75; margin-top: 8px;">Editorial significa bordas vivas. Use radius com moderação — só em pills/badges e avatares.</p>
+        <div class="ex">
+          <div style="height: 80px; aspect-ratio: auto; flex: 1;">none · 0</div>
+          <div style="height: 80px; aspect-ratio: auto; flex: 1; border-radius: 4px;">sm · 4</div>
+          <div style="height: 80px; aspect-ratio: auto; flex: 1; border-radius: 12px;">md · 12</div>
+          <div style="height: 80px; aspect-ratio: auto; flex: 1; border-radius: 999px;">full · pill</div>
+        </div>
+      </div>
+
+      <div class="grid-card">
+        <div style="font-family: var(--sans); font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--aubergine); opacity: 0.6; font-weight: 500; margin-bottom: 22px;">Grid de 12 colunas</div>
+        <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px;">
+          <div style="height: 60px; background: var(--lilac);"></div>
+          <div style="height: 60px; background: var(--lilac);"></div>
+          <div style="height: 60px; background: var(--lilac);"></div>
+          <div style="height: 60px; background: var(--lilac);"></div>
+          <div style="height: 60px; background: var(--lilac);"></div>
+          <div style="height: 60px; background: var(--lilac);"></div>
+          <div style="height: 60px; background: var(--lilac);"></div>
+          <div style="height: 60px; background: var(--lilac);"></div>
+          <div style="height: 60px; background: var(--lilac);"></div>
+          <div style="height: 60px; background: var(--lilac);"></div>
+          <div style="height: 60px; background: var(--lilac);"></div>
+          <div style="height: 60px; background: var(--lilac);"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 12px; font-family: var(--mono); font-size: 10px; opacity: 0.6; letter-spacing: 0.15em;">
+          <span>MAX 1440</span><span>GAP 24</span><span>MARGIN 56</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPONENTS ===== -->
+<section class="block alt" id="comp">
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">07 · Componentes UI</div>
+      <h2>Os <em>blocos</em><br>do produto.</h2>
+    </div>
+    <div class="desc">Componentes pensados para um e-commerce editorial. Bordas vivas, contraste limpo, foco em tipografia. Estados de hover sempre escurecem para lilás profundo; estados de foco usam ring de 2px em lilás.</div>
+  </div>
+
+  <div class="comp-grid">
+    <!-- Buttons -->
+    <div class="comp-card">
+      <div class="label">Botões · Primários</div>
+      <div class="row">
+        <a class="btn lg">Explorar coleção</a>
+        <a class="btn">Adicionar à sacola</a>
+        <a class="btn sm">Ver mais</a>
+      </div>
+      <div class="row">
+        <a class="btn lilac">Edição XII</a>
+        <a class="btn rose">Beleza</a>
+        <a class="btn outline">Outline</a>
+      </div>
+      <div class="row">
+        <a class="btn text">Ler manifesto →</a>
+        <a class="btn text">Ver coleção completa →</a>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div class="comp-card">
+      <div class="label">Tags &amp; selos</div>
+      <div class="row">
+        <span class="tag solid">Edição XII</span>
+        <span class="tag lilac">Novidade</span>
+        <span class="tag lilac-deep">Premium</span>
+        <span class="tag rose">Beleza</span>
+        <span class="tag sage">Casa</span>
+        <span class="tag wine">Limitada</span>
+      </div>
+      <div class="row">
+        <span class="tag outline">Importado</span>
+        <span class="tag outline round">★ Best-seller</span>
+        <span class="tag solid round">Frete grátis</span>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="comp-card">
+      <div class="label">Inputs &amp; formulários</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+        <div class="field">
+          <label>Nome completo</label>
+          <input type="text" placeholder="Maria de Lourdes" value="Maria de Lourdes">
+        </div>
+        <div class="field">
+          <label>E-mail</label>
+          <input type="email" placeholder="seu@email.com">
+        </div>
+      </div>
+      <div class="field field-line" style="margin-top: 18px;">
+        <label>Buscar produtos</label>
+        <input type="search" placeholder="Lenço de seda, vela, taça…">
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="comp-card">
+      <div class="label">Card de produto</div>
+      <div class="prod-mini">
+        <div class="img">
+          <span class="ph">FOTO PRODUTO · 1:1.1</span>
+        </div>
+        <div class="info">
+          <div class="cat">CASA · MESA POSTA</div>
+          <div class="name">Jogo de taças<br><em>cristal Hangzhou</em></div>
+          <div class="price">R$ 349</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tag de preço, breadcrumb -->
+  <div class="comp-grid" style="margin-top: 0;">
+    <div class="comp-card">
+      <div class="label">Breadcrumb &amp; nav</div>
+      <div style="font-family: var(--sans); font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--aubergine); margin-bottom: 24px;">
+        Casa <span style="opacity: 0.4; margin: 0 10px;">/</span>
+        Mesa posta <span style="opacity: 0.4; margin: 0 10px;">/</span>
+        <span style="color: var(--lilac-deep); font-weight: 500;">Taças</span>
+      </div>
+      <div style="display: flex; gap: 28px; font-family: var(--sans); font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500;">
+        <span style="border-bottom: 2px solid var(--lilac-deep); padding-bottom: 8px; color: var(--lilac-deep);">Em alta</span>
+        <span style="opacity: 0.6;">Novidades</span>
+        <span style="opacity: 0.6;">Edições</span>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="label">Preço &amp; rating</div>
+      <div style="display: flex; align-items: baseline; gap: 14px;">
+        <span style="font-family: var(--serif); font-weight: 500; font-size: 36px; color: var(--aubergine);">R$ 349</span>
+        <s style="font-family: var(--serif); font-size: 20px; opacity: 0.5;">R$ 489</s>
+        <span class="tag wine" style="font-size: 9px;">-29%</span>
+      </div>
+      <div style="margin-top: 16px; font-family: var(--sans); font-size: 13px; color: var(--aubergine);">
+        <span style="color: var(--lilac-deep); letter-spacing: 0.1em;">★ ★ ★ ★ ★</span>
+        <span style="opacity: 0.7; margin-left: 8px;">4.9 · 128 avaliações</span>
+      </div>
+      <div style="margin-top: 16px; font-family: var(--sans); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage-deep); font-weight: 500;">
+        ✓ Em estoque · Envio em 48h
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ICONS ===== -->
+<section class="block" id="icons">
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">08 · Iconografia</div>
+      <h2>Linhas <em>finas</em> e<br>geometria limpa.</h2>
+    </div>
+    <div class="desc">Ícones em traço 1.3px, sempre stroked, nunca preenchidos. Tamanho base 24px com variantes 16 e 32. Cantos arredondados (linecap round) para humanizar — mas formas geometricamente puras.</div>
+  </div>
+
+  <div class="icon-grid">
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg>
+      Casa
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      Mundo
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><path d="M5 7h14l-1 13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM9 7V5a3 3 0 0 1 6 0v2"/></svg>
+      Sacola
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg>
+      Favorito
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>
+      Buscar
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      Conta
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14"/><path d="M3 10h18M8 6V3M16 6V3"/></svg>
+      Edição
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+      Premium
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12"/><path d="M4 12h16M8 8V4h8v4"/></svg>
+      Pacote
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><path d="M20 7L9 18l-5-5"/></svg>
+      Confirmar
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><path d="M3 7h18M6 7v13h12V7M9 7V4h6v3"/></svg>
+      Entrega
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      48h
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><path d="M12 3l2.4 5.6L20 9l-4.4 4 1.2 6L12 16l-4.8 3 1.2-6L4 9l5.6-.4z"/></svg>
+      Curado
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><path d="M4 7c0 5 4 9 8 13 4-4 8-8 8-13a4 4 0 0 0-8-1 4 4 0 0 0-8 1z"/></svg>
+      Amor
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><path d="M3 8h18M8 3v18"/></svg>
+      Grade
+    </div>
+    <div class="icon-cell">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16v6a8 8 0 0 1-16 0z"/><path d="M9 14v6M15 14v6M7 20h10"/></svg>
+      Selo
+    </div>
+  </div>
+</section>
+
+<!-- ===== PATTERNS ===== -->
+<section class="block alt" id="pattern">
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">09 · Padronagens</div>
+      <h2>Texturas para <em>respirar.</em></h2>
+    </div>
+    <div class="desc">Padronagens são usadas para preencher áreas vazias com discrição — papel de embalagem, fundos de seção, lining de envelope. Sempre baixa saturação. Nunca compitam com fotografia de produto.</div>
+  </div>
+
+  <div class="pattern-grid">
+    <div class="pat pat1"><span class="label">01 · Stripes diagonais</span></div>
+    <div class="pat pat2"><span class="label">02 · Confete editorial</span></div>
+    <div class="pat pat3"><span class="label">03 · Grid noturno</span></div>
+    <div class="pat pat4"><span class="label">04 · Polka clássica</span></div>
+    <div class="pat pat5"><span class="label">05 · Linhas régua</span></div>
+    <div class="pat pat6"><span class="label">06 · Sunset suave</span></div>
+  </div>
+</section>
+
+<!-- ===== VOICE ===== -->
+<section class="block" id="voice">
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">10 · Voz &amp; copy</div>
+      <h2>Como a Lurdex <em>fala.</em></h2>
+    </div>
+    <div class="desc">Voz editorial, calorosa, com pequenos arcos poéticos — nunca afetada. Trate o cliente como alguém de bom gosto que merece ser informado, não convencido. Frases curtas, com ritmo. Itálico raro, mas certeiro.</div>
+  </div>
+
+  <div class="voice-grid">
+    <div class="voice-card">
+      <div class="h">Tom</div>
+      <div class="yn yes">Acolhedor &amp; refinado</div>
+      <ul>
+        <li>Sofisticado sem ser frio.</li>
+        <li>Editorial, mas com calor de casa.</li>
+        <li>Brasileiro, com olho no mundo.</li>
+        <li>Curador, não vendedor.</li>
+      </ul>
+    </div>
+    <div class="voice-card aub">
+      <div class="h">Frase modelo</div>
+      <p style="font-family: var(--serif); font-style: italic; font-size: 28px; line-height: 1.2; color: var(--cream);">
+        "Trazemos para a sua casa o que escolheríamos para a <span style="color: var(--lilac);">nossa.</span>"
+      </p>
+      <p style="font-family: var(--sans); font-size: 13px; opacity: 0.7; margin-top: 24px; line-height: 1.5;">Use frases que comecem com verbo de cuidado. Evite superlativos vazios — "incrível", "imperdível", "único". Prefira concretude.</p>
+    </div>
+    <div class="voice-card">
+      <div class="h">Vocabulário</div>
+      <div class="yn yes">Use</div>
+      <ul>
+        <li>Curadoria · seleção · ritual</li>
+        <li>Edição · coleção · capítulo</li>
+        <li>Casa · cuidado · cotidiano</li>
+        <li>Embalagem · acontecimento</li>
+      </ul>
+      <div class="yn no" style="margin-top: 18px;">Evite</div>
+      <ul>
+        <li>Promoção · oferta · barbada</li>
+        <li>Imperdível · único · sensacional</li>
+        <li>"Eu" / "nós" excessivos</li>
+        <li>Emojis em geral</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top: 30px; background: var(--paper); border: 1px solid var(--border); padding: 36px 40px;">
+    <div style="font-family: var(--sans); font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--lilac-deep); font-weight: 500; margin-bottom: 18px;">Slogans &amp; tagline</div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+      <div>
+        <div style="font-family: var(--serif); font-style: italic; font-size: 32px; line-height: 1.05; color: var(--aubergine); letter-spacing: -0.01em;">"O mundo, dentro de casa."</div>
+        <div style="font-family: var(--sans); font-size: 10px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--aubergine); opacity: 0.6; margin-top: 12px; font-weight: 500;">Tagline principal</div>
+      </div>
+      <div>
+        <div style="font-family: var(--serif); font-style: italic; font-size: 32px; line-height: 1.05; color: var(--aubergine); letter-spacing: -0.01em;">"Importação <span style="color: var(--lilac-deep);">como ritual.</span>"</div>
+        <div style="font-family: var(--sans); font-size: 10px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--aubergine); opacity: 0.6; margin-top: 12px; font-weight: 500;">Posicionamento</div>
+      </div>
+      <div>
+        <div style="font-family: var(--serif); font-style: italic; font-size: 32px; line-height: 1.05; color: var(--aubergine); letter-spacing: -0.01em;">"Sofisticação <span style="color: var(--lilac-deep);">não é privilégio.</span>"</div>
+        <div style="font-family: var(--sans); font-size: 10px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--aubergine); opacity: 0.6; margin-top: 12px; font-weight: 500;">Manifesto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPLICATIONS ===== -->
+<section class="block alt" id="apps">
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">11 · Aplicações</div>
+      <h2>A marca <em>no mundo.</em></h2>
+    </div>
+    <div class="desc">Exemplos de como o sistema se comporta em pontos de contato comuns: cartão, embalagem, feed social. Substitua os placeholders por fotografia editorial real seguindo as diretrizes desta seção.</div>
+  </div>
+
+  <div class="app-grid">
+    <!-- Cartão -->
+    <div class="app">
+      <span class="ph-label">01 · Cartão de visita</span>
+      <div class="bcard">
+        <div class="face">
+          <div>
+            <div class="nm">L<em>u</em>rdex</div>
+            <div class="role">Magazinne · Curadoria</div>
+          </div>
+          <div>
+            <div style="font-family: var(--sans); font-size: 10px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--aubergine); font-weight: 500;">Maria de Lourdes</div>
+            <div style="font-family: var(--sans); font-size: 8px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--aubergine); opacity: 0.7; margin-top: 2px;">Fundadora</div>
+            <div class="det" style="margin-top: 10px;">+55 11 9 9000 0000<br>contato@lurdex.com.br</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instagram -->
+    <div class="app">
+      <span class="ph-label" style="color: var(--lilac);">02 · Post Instagram</span>
+      <div class="igtile">
+        <div class="top">— Edição XII · Outono —</div>
+        <h4>O mundo,<br><em>dentro<br>de casa.</em></h4>
+        <div class="ftr">@LURDEX.MAGAZINNE · MMXXVI</div>
+      </div>
+    </div>
+
+    <!-- Embalagem -->
+    <div class="app">
+      <span class="ph-label">03 · Etiqueta de embalagem</span>
+      <div class="pkg">
+        <div class="box">
+          <div class="ed">Edição XII · Outono</div>
+          <div class="nm">
+            L<em>u</em>rdex
+            <span class="sm">M A G A Z I N N E</span>
+          </div>
+          <div class="ftr">
+            CURADO COM CUIDADO<br>
+            EM SÃO PAULO · BR<br>
+            MMXXVI
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mockup feed Instagram em mosaico 3x3 -->
+  <div style="margin-top: 40px;">
+    <div style="font-family: var(--sans); font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--aubergine); opacity: 0.7; margin-bottom: 18px; font-weight: 500;">Feed Instagram · Mosaico 3×3</div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; max-width: 720px;">
+      <div style="aspect-ratio: 1; background: var(--aubergine); color: var(--cream); padding: 18px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div style="font-family: var(--sans); font-size: 8px; letter-spacing: 0.42em; color: var(--lilac);">EDIÇÃO XII</div>
+        <div style="font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1;">O mundo, dentro de casa.</div>
+      </div>
+      <div style="aspect-ratio: 1; background: repeating-linear-gradient(45deg, var(--lilac-pale), var(--lilac-pale) 10px, var(--lilac-soft) 10px, var(--lilac-soft) 20px); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; color: var(--aubergine); opacity: 0.7;">FOTO PRODUTO</div>
+      <div style="aspect-ratio: 1; background: var(--lilac); padding: 18px; display: flex; flex-direction: column; justify-content: space-between; color: var(--aubergine);">
+        <div style="font-family: var(--sans); font-size: 8px; letter-spacing: 0.42em;">NOVIDADE</div>
+        <div style="font-family: var(--serif); font-size: 22px; line-height: 1.05;">Jogo de taças cristal <span style="font-style: italic;">Hangzhou</span></div>
+      </div>
+      <div style="aspect-ratio: 1; background: var(--cream-2); padding: 18px; display: flex; flex-direction: column; justify-content: space-between; color: var(--aubergine);">
+        <div style="font-family: var(--sans); font-size: 8px; letter-spacing: 0.42em;">CURADORIA</div>
+        <div style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.05;">"Trazemos para a sua casa o que escolheríamos para a nossa."</div>
+      </div>
+      <div style="aspect-ratio: 1; background: repeating-linear-gradient(45deg, var(--rose), var(--rose) 10px, var(--lilac-pale) 10px, var(--lilac-pale) 20px); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; color: var(--aubergine); opacity: 0.7;">EDITORIAL</div>
+      <div style="aspect-ratio: 1; background: var(--rose); padding: 18px; display: flex; flex-direction: column; justify-content: space-between; color: var(--aubergine);">
+        <div style="font-family: var(--sans); font-size: 8px; letter-spacing: 0.42em;">BELEZA</div>
+        <div style="font-family: var(--serif); font-size: 22px; line-height: 1.05;">A rotina como <span style="font-style: italic;">ritual.</span></div>
+      </div>
+      <div style="aspect-ratio: 1; background: var(--sage); padding: 18px; display: flex; flex-direction: column; justify-content: space-between; color: var(--aubergine);">
+        <div style="font-family: var(--sans); font-size: 8px; letter-spacing: 0.42em;">CASA</div>
+        <div style="font-family: var(--serif); font-size: 22px; line-height: 1.05;">Pequenos <span style="font-style: italic;">gestos</span> que vestem a casa.</div>
+      </div>
+      <div style="aspect-ratio: 1; background: repeating-linear-gradient(45deg, var(--sage), var(--sage) 10px, var(--lilac-pale) 10px, var(--lilac-pale) 20px); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; color: var(--aubergine); opacity: 0.7;">FOTO PRODUTO</div>
+      <div style="aspect-ratio: 1; background: var(--lilac-pale); padding: 18px; display: flex; flex-direction: column; justify-content: space-between; color: var(--aubergine);">
+        <div style="font-family: var(--sans); font-size: 8px; letter-spacing: 0.42em;">BASTIDORES</div>
+        <div style="font-family: var(--serif); font-size: 22px; line-height: 1.05;">De <span style="font-style: italic;">Hangzhou</span> para o Brasil.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DO & DONT ===== -->
+<section class="block" id="rules">
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">12 · Do &amp; Don't</div>
+      <h2>Os <em>guardrails</em><br>da marca.</h2>
+    </div>
+    <div class="desc">Pequenas regras que sustentam o tom premium. Quando em dúvida, escolha a opção mais silenciosa — Lurdex sussurra, não grita.</div>
+  </div>
+
+  <div class="do-dont">
+    <div class="dd do">
+      <div class="h">✓ Faça</div>
+      <ul>
+        <li>Use Cormorant Garamond para hierarquia principal — sempre acompanhado de Sora.</li>
+        <li>Mantenha o "u" itálico em Lurdex como assinatura visual única.</li>
+        <li>Privilegie bordas vivas (radius 0) em containers e cards.</li>
+        <li>Use o lilás como pulsar — em ~25% da composição, não mais.</li>
+        <li>Deixe respiro generoso entre elementos. O luxo está no vazio.</li>
+        <li>Trate cada item da coleção como uma "edição" — não como um SKU.</li>
+        <li>Use algarismos romanos para edições (Edição XII), datas (MMXXVI).</li>
+      </ul>
+    </div>
+
+    <div class="dd dont">
+      <div class="h">✗ Não faça</div>
+      <ul>
+        <li>Nunca distorça, incline ou aplique outline ao logotipo principal.</li>
+        <li>Não use gradientes coloridos chamativos — só sunset suave em ocasiões editoriais.</li>
+        <li>Não combine Cormorant com outras serifas decorativas (sem Playfair, Fraunces, etc.).</li>
+        <li>Evite emojis e ícones preenchidos. Linha fina sempre.</li>
+        <li>Não use a paleta toda em uma única composição — máximo 3 cores por peça.</li>
+        <li>Não escreva "OFERTA", "PROMOÇÃO" em caps grandes. Use "Edição limitada".</li>
+        <li>Nunca arredonde fotos de produto. Crops sempre retangulares ou 1:1.1.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLOSE ===== -->
+<section class="close-band">
+  <div style="font-family: var(--sans); font-size: 11px; letter-spacing: 0.5em; text-transform: uppercase; color: var(--aubergine); opacity: 0.7; margin-bottom: 30px;">— Fim do guia —</div>
+  <h2>Curado <em>com cuidado.</em><br>Em <em>São Paulo</em>, MMXXVI.</h2>
+  <div class="by">Lurdex Magazinne · Design System v1.0 · Maria de Lourdes</div>
+</section>
+
+</main>
+
+</body>
+</html>

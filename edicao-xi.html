@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-page="edicoes">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#6E9B72">
+<title>Edição XI · Estio — Lurdex Magazinne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Sora:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .ed-hero { padding: var(--s-7) 0 var(--s-9); color: var(--cream); position: relative; overflow: hidden; background: var(--sage-deep); }
+  .ed-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .ed-hero-bg .img-wrap, .ed-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .ed-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(40, 60, 45, 0.78), rgba(40, 60, 45, 0.55) 40%, rgba(40, 60, 45, 0.88) 100%); }
+  .ed-hero > .container { position: relative; z-index: 1; }
+  .ed-hero .num { font-family: var(--serif); font-style: italic; font-size: clamp(120px, 28vw, 320px); line-height: 0.85; color: var(--cream); opacity: 0.85; }
+  .ed-hero h1 { color: var(--cream); font-size: clamp(48px, 12vw, 120px); line-height: 0.92; letter-spacing: -0.03em; }
+  .ed-hero h1 em { color: var(--cream); opacity: 0.85; }
+  .ed-hero .lead { max-width: 56ch; font-size: clamp(16px, 2vw, 19px); line-height: 1.6; margin-top: var(--s-5); opacity: 0.88; }
+  .archive-flag { display: inline-block; padding: 6px 12px; border: 1px solid rgba(245,239,230,0.4); border-radius: 999px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: var(--s-4); }
+  .ed-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); margin-top: var(--s-6); padding-top: var(--s-5); border-top: 1px solid rgba(245,239,230,0.18); }
+  .ed-stats .lbl { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.7; margin-bottom: 6px; }
+  .ed-stats .val { font-family: var(--serif); font-size: clamp(32px, 5vw, 56px); }
+  .ed-letter { padding: var(--s-8) 0; }
+  .ed-letter blockquote { font-family: var(--serif); font-style: italic; font-size: clamp(24px, 4vw, 40px); line-height: 1.3; max-width: 28ch; margin: 0 auto var(--s-6); text-align: center; color: var(--aubergine); }
+  .ed-letter .sig { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.7; }
+</style>
+</head>
+<body>
+
+<header data-nav></header>
+
+<section class="ed-hero">
+  <div class="ed-hero-bg" data-ai-img="summer linen interior, translucent green glass, sheer curtains, soft daylight" data-ai-seed="ed-xi-hero" data-ai-w="1600" data-ai-h="900" data-ai-tone="sage" data-ai-eager data-ai-alt="Edição XI — Estio"></div>
+  <div class="container">
+    <nav class="crumbs" style="color: rgba(245,239,230,0.7); margin-bottom: var(--s-4);">
+      <a href="index.html" style="color:inherit;">Início</a> · <a href="edicoes.html" style="color:inherit;">Edições</a> · <span>XI · Estio</span>
+    </nav>
+    <div class="archive-flag">Arquivo · Esgotada</div>
+    <div class="num">XI</div>
+    <h1>Estio,<br><em>tudo translúcido.</em></h1>
+    <p class="lead">Trinta e seis peças escolhidas para o alto verão. A leveza do linho, o vidro que filtra a luz, a porcelana que pede gelo. Uma curadoria pensada para casas que respiram com as janelas abertas.</p>
+    <div class="ed-stats">
+      <div><span class="lbl">Peças</span><span class="val">36</span></div>
+      <div><span class="lbl">Atelieres</span><span class="val">9</span></div>
+      <div><span class="lbl">Países</span><span class="val">5</span></div>
+    </div>
+    <div style="margin-top: var(--s-6); display: flex; gap: var(--s-3); flex-wrap: wrap;">
+      <a class="btn btn-light" href="edicao-xii.html">Ver edição atual</a>
+      <a class="btn btn-secondary" style="border-color: var(--cream); color: var(--cream);" href="edicoes.html">Voltar ao arquivo</a>
+    </div>
+  </div>
+</section>
+
+<section class="ed-letter">
+  <div class="container narrow">
+    <div class="eyebrow" style="text-align:center;">Carta da curadora · Setembro MMXXVI</div>
+    <blockquote>"No verão a casa pede menos. Menos enfeite, menos peso, menos prata. Pede vidro, linho, sombra."</blockquote>
+    <div class="sig">Maria de Lourdes · Setembro MMXXVI</div>
+  </div>
+</section>
+
+<section class="section" id="colecao">
+  <div class="container">
+    <div class="section-head">
+      <div class="row">
+        <div>
+          <div class="eyebrow">A coleção · esgotada</div>
+          <h2>Algumas peças <em>que sobreviveram.</em></h2>
+        </div>
+        <a class="btn-ghost" href="edicao-xii.html">Ver edição atual</a>
+      </div>
+    </div>
+    <div class="products-grid" data-edicao-grid></div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="container">
+    <div class="eyebrow" style="color: var(--lilac); margin-bottom: var(--s-4);">Próxima edição</div>
+    <h2>Não perca a <em>próxima carta.</em></h2>
+    <p>Assine para receber a Edição XIII em primeira mão — com acesso prioritário às peças numeradas.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); LURDEX.toast('Obrigada! Você está na lista.'); this.reset();">
+      <input type="email" required placeholder="seu@email.com.br" aria-label="Email">
+      <button class="btn btn-light" type="submit">Assinar</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer" data-footer></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/partials.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  // Show 4 sage/cream products as "survivors" of the past edition
+  const survivors = LURDEX.products.filter(p => ['sage','cream','lilac'].includes(p.tone)).slice(0, 4);
+  LURDEX.renderProductGrid('[data-edicao-grid]', survivors.length ? survivors : LURDEX.products.slice(0, 4));
+</script>
+
+</body>
+</html>

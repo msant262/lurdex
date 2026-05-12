@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-page="produtos">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5EFE6">
+<title>Produto — Lurdex Magazinne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Sora:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .pdp { padding: var(--s-6) 0 var(--s-8); }
+  .pdp-grid { display: grid; grid-template-columns: 1fr; gap: var(--s-6); }
+  .pdp-gallery { aspect-ratio: 1; background: var(--cream-2); border-radius: 4px; overflow: hidden; position: relative; }
+  .pdp-badge { position: absolute; top: var(--s-4); left: var(--s-4); background: var(--cream); padding: 6px 12px; border-radius: 999px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .pdp-cat { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lilac-deep); }
+  .pdp h1 { font-size: clamp(40px, 8vw, 80px); line-height: 1; margin: var(--s-3) 0 var(--s-4); }
+  .pdp-price { font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); font-weight: 600; margin-bottom: var(--s-3); }
+  .pdp-installment { font-size: 13px; opacity: 0.7; margin-bottom: var(--s-5); }
+  .pdp-desc { font-size: 16px; line-height: 1.65; opacity: 0.85; }
+  .pdp-actions { display: flex; gap: var(--s-3); align-items: center; margin: var(--s-5) 0; flex-wrap: wrap; }
+  .pdp-perks { margin-top: var(--s-5); padding-top: var(--s-4); border-top: 1px solid var(--border-soft); display: grid; gap: var(--s-3); }
+  .pdp-perks li { display: flex; gap: var(--s-3); align-items: start; font-size: 14px; }
+  .pdp-perks li::before { content: '◊'; color: var(--lilac-deep); flex: 0 0 auto; }
+  .pdp-perks ul { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s-3); }
+  @media (min-width: 880px) { .pdp-grid { grid-template-columns: 6fr 6fr; gap: var(--s-8); } }
+</style>
+</head>
+<body>
+
+<header data-nav></header>
+
+<section class="pdp">
+  <div class="container">
+    <nav class="crumbs" data-crumbs style="margin-bottom: var(--s-5);"></nav>
+    <div id="notfound" class="is-hidden" style="text-align:center; padding: var(--s-8) 0;">
+      <div class="eyebrow">404</div>
+      <h1>Peça <em>esgotada</em> ou não encontrada.</h1>
+      <p style="margin-top: var(--s-4); opacity: 0.75;">Que tal continuar pela <a href="produtos.html" style="text-decoration: underline;">coleção completa</a>?</p>
+    </div>
+    <div class="pdp-grid" data-pdp></div>
+  </div>
+</section>
+
+<section class="section paper" id="more">
+  <div class="container">
+    <div class="section-head"><div><div class="eyebrow">Mais peças</div><h2>Você também <em>vai gostar.</em></h2></div></div>
+    <div class="products-grid" data-related></div>
+  </div>
+</section>
+
+<footer class="footer" data-footer></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/partials.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  const id = new URLSearchParams(location.search).get('id') || LURDEX.products[0].id;
+  const p = LURDEX.byId(id);
+  if (!p) {
+    document.querySelector('[data-pdp]').style.display = 'none';
+    document.getElementById('notfound').classList.remove('is-hidden');
+    document.getElementById('more').style.display = 'none';
+  } else {
+    const installment = (p.price / 6).toFixed(2).replace('.', ',');
+    document.title = `${p.name} — Lurdex Magazinne`;
+    document.querySelector('[data-crumbs]').innerHTML =
+      `<a href="index.html">Início</a> · <a href="${p.cat}.html">${p.cat.charAt(0).toUpperCase() + p.cat.slice(1)}</a> · <span>${p.name}</span>`;
+    document.querySelector('[data-pdp]').innerHTML = `
+      <div class="pdp-gallery">
+        ${LURDEX.imgHTML(p, 1200, 1200, true)}
+        ${p.badge ? `<div class="pdp-badge">${p.badge}</div>` : ''}
+      </div>
+      <div>
+        <div class="pdp-cat">${p.cat_label}</div>
+        <h1>${p.name.replace(p.italic, `<em>${p.italic}</em>`)}</h1>
+        <div class="pdp-price">${LURDEX.fmt(p.price)}</div>
+        <div class="pdp-installment">ou 6× de R$ ${installment} sem juros</div>
+        <p class="pdp-desc">${p.desc}</p>
+        <div class="pdp-actions">
+          <div class="qty-input">
+            <button data-modal-dec aria-label="Diminuir">−</button>
+            <span data-modal-qty>1</span>
+            <button data-modal-inc aria-label="Aumentar">+</button>
+          </div>
+          <button class="btn btn-primary" style="flex:1; min-width: 220px;" data-modal-add="${p.id}">Adicionar à sacola</button>
+        </div>
+        <button class="btn btn-secondary" style="width: 100%;" data-modal-fav="${p.id}">
+          ${LURDEX.isFav(p.id) ? '♥ Favorito' : '♡ Favoritar'}
+        </button>
+        <div class="pdp-perks">
+          <ul>
+            <li>Embrulho editorial sem custo, com cartão à mão da curadora</li>
+            <li>Frete grátis em compras acima de R$ 299</li>
+            <li>Troca em até 30 dias após o recebimento</li>
+            <li>Atendimento por WhatsApp com a equipe Lurdex</li>
+          </ul>
+        </div>
+      </div>
+    `;
+    // Related products
+    const others = LURDEX.products.filter(o => o.id !== p.id && (o.cat === p.cat || o.tone === p.tone)).slice(0, 4);
+    LURDEX.renderProductGrid('[data-related]', others.length ? others : LURDEX.products.slice(0, 4));
+  }
+</script>
+
+</body>
+</html>

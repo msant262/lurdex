@@ -717,12 +717,249 @@ section.block.alt { background: var(--cream-2); }
   flex-shrink: 0;
 }
 
+/* ========== MOBILE BURGER (hidden on desktop) ========== */
+.ds-burger { display: none; }
+.ds-backdrop { display: none; }
+
+/* ========== RESPONSIVE — TABLET / MOBILE ========== */
+@media (max-width: 960px) {
+  html, body { overflow-x: clip; max-width: 100vw; }
+  body { grid-template-columns: 1fr; }
+
+  /* Sidebar becomes an off-canvas drawer */
+  .side {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: 86%; max-width: 360px;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 360ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    padding: 28px 28px 60px;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  body.menu-open .side { transform: translateX(0); }
+
+  /* Backdrop appears when drawer is open */
+  .ds-backdrop {
+    display: block;
+    position: fixed; inset: 0;
+    background: rgba(42, 31, 56, 0.55);
+    opacity: 0; pointer-events: none;
+    z-index: 99;
+    transition: opacity 320ms ease;
+  }
+  body.menu-open .ds-backdrop { opacity: 1; pointer-events: auto; }
+  body.menu-open { overflow: hidden; }
+
+  /* Sticky top bar with burger + brand */
+  .ds-burger {
+    display: flex;
+    position: sticky; top: 0;
+    z-index: 90;
+    align-items: center; justify-content: space-between;
+    padding: 14px 20px;
+    background: rgba(245, 239, 230, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .ds-burger .b-brand {
+    font-family: var(--serif);
+    font-size: 28px; font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--aubergine);
+    line-height: 1;
+  }
+  .ds-burger .b-brand em { font-style: italic; color: var(--lilac-deep); }
+  .ds-burger .b-toggle {
+    width: 44px; height: 44px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: none; border: 0; cursor: pointer;
+    padding: 0;
+  }
+  .ds-burger .b-toggle span {
+    display: block; width: 22px; height: 1.5px;
+    background: var(--aubergine);
+    position: relative;
+  }
+  .ds-burger .b-toggle span::before,
+  .ds-burger .b-toggle span::after {
+    content: ''; position: absolute; left: 0; right: 0;
+    height: 1.5px; background: var(--aubergine);
+    transition: transform 240ms ease;
+  }
+  .ds-burger .b-toggle span::before { top: -7px; }
+  .ds-burger .b-toggle span::after  { top: 7px; }
+  body.menu-open .ds-burger .b-toggle span { background: transparent; }
+  body.menu-open .ds-burger .b-toggle span::before { top: 0; transform: rotate(45deg); }
+  body.menu-open .ds-burger .b-toggle span::after  { top: 0; transform: rotate(-45deg); }
+
+  /* Main content: reduce paddings */
+  .hero-ds { padding: 40px 24px 48px; }
+  .hero-ds h1 { font-size: clamp(48px, 13vw, 72px); margin: 18px 0 16px; }
+  .hero-ds .meta { gap: 24px; flex-wrap: wrap; margin-top: 26px; }
+  .hero-ds .meta div { font-size: 18px; }
+
+  section.block { padding: 60px 24px; }
+  section.block h2,
+  .section-title h2 { font-size: clamp(36px, 9vw, 56px) !important; }
+  .section-title p { font-size: 14px !important; }
+
+  /* Multi-column grids collapse */
+  .section-title,
+  .logo-grid,
+  .color-row,
+  .type-grid,
+  .type-card .meta,
+  .type-scale-row,
+  .scale-grid,
+  .space-grid,
+  .spacing-grid,
+  .spacing-card .row,
+  .grid-card,
+  .pattern-grid,
+  .voice-grid,
+  .app-grid,
+  .do-dont,
+  .comp-grid,
+  .icon-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  /* Nuclear override: any inline grid-template-columns in main → single column */
+  main [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Allow color palettes to keep 2 columns (more compact + still readable) */
+  .color-row.r4, .color-row.r5 { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  /* Icon grid can keep 4 cols on mobile (small items, more legible compact) */
+  .icon-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 10px !important; }
+
+  /* Cards/rows that ride on flexbox: ensure they wrap and let kids shrink */
+  main * { min-width: 0; }
+  main .row,
+  main .codes,
+  main [class*="-card"] > * { flex-wrap: wrap; }
+
+  /* Big typography display rows can blow up — clamp them */
+  .type-scale-row .sample,
+  .type-scale-row > :last-child,
+  .type-display,
+  [class*="logo-monogram"],
+  [class*="logo-primary"] .name { font-size: clamp(28px, 9vw, 56px) !important; line-height: 1 !important; }
+
+  /* Anything labeled wordmark/seal card can have large text — shrink */
+  [class*="logo-card"] { padding: 22px 18px !important; }
+
+  /* Slogans / aplicações pull-quotes */
+  [class*="voice"] q,
+  [class*="voice"] blockquote { font-size: clamp(20px, 5vw, 28px) !important; }
+
+  /* Buttons / chips demos shouldn't shove off-screen */
+  main .demo,
+  main .row-buttons,
+  main [class*="-demo"] { flex-wrap: wrap !important; }
+
+  /* Tighten card paddings so content has breathing room */
+  .comp-card { padding: 24px !important; }
+  .logo-card { padding: 24px !important; }
+  .type-card { padding: 24px !important; }
+  .spacing-card,
+  [class*="-card"] { padding: 22px !important; }
+
+  /* All cards/containers strictly inside their column */
+  main [class*="-card"],
+  main [class*="-grid"] > * { max-width: 100%; min-width: 0; overflow: hidden; }
+
+  /* close-band (final card) shrink */
+  section.close-band { padding: 60px 24px !important; }
+
+  /* Long inline-flex chip/tag rows wrap */
+  main .row, main .codes, main .meta { flex-wrap: wrap !important; gap: 8px !important; }
+  .btn { font-size: 10px !important; padding: 10px 14px !important; letter-spacing: 0.12em !important; }
+  .tag, .chip { font-size: 10px !important; }
+
+  /* The hero h1 has an inline style override — make sure we win */
+  .hero-ds h1, .hero-ds h1[style] { font-size: clamp(40px, 12vw, 68px) !important; max-width: 100% !important; }
+  .hero-ds .meta { gap: 16px 24px !important; }
+  .hero-ds .meta div { font-size: 16px !important; }
+
+  /* ===== Logo section — full flex column on mobile (ignores grid + span) ===== */
+  section#logo .logo-grid,
+  body section#logo .logo-grid,
+  .logo-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+  section#logo .logo-card,
+  body section#logo .logo-card,
+  .logo-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-column: auto !important;     /* nukes inline grid-column:span 2 */
+    flex: 0 0 auto !important;
+    min-height: 200px;
+    padding: 32px 20px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+  }
+  section#logo .logo-card[style*="grid-column"] {
+    grid-column: auto !important;     /* belt + suspenders for inline style */
+  }
+  section#logo .logo-card .tag {
+    position: absolute;
+    top: 12px; left: 14px;
+    font-size: 9px !important;
+    letter-spacing: 0.18em !important;
+  }
+  /* Reduce MAGAZINNE tracking so it fits one line even on narrow cards */
+  .logo-primary .sub {
+    letter-spacing: 0.3em !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+  }
+  .logo-primary .name { font-size: clamp(48px, 14vw, 72px) !important; }
+  .logo-monogram { font-size: clamp(72px, 22vw, 110px) !important; }
+  .logo-seal { width: clamp(140px, 50vw, 200px) !important; height: auto !important; }
+
+  /* Tighten side-brand inside drawer */
+  .side-brand { font-size: 36px; }
+  .side-label { margin: 32px 0 12px; }
+  .side .ver { margin-top: 36px; }
+
+  /* Inline style overrides on the hero h1 etc */
+  .hero-ds h1[style*="font-size"] { font-size: clamp(48px, 13vw, 72px) !important; }
+}
+
+@media (max-width: 480px) {
+  .hero-ds { padding: 32px 18px 40px; }
+  section.block { padding: 48px 18px; }
+  .hero-ds h1 { font-size: clamp(40px, 11vw, 56px); }
+}
+
 </style>
 </head>
 <body>
 
+<!-- ===== MOBILE BURGER (hidden on desktop via CSS) ===== -->
+<div class="ds-burger">
+  <a class="b-brand" href="../imprensa.html">L<em>u</em>rdex</a>
+  <button class="b-toggle" aria-label="Abrir sumário" onclick="document.body.classList.toggle('menu-open')">
+    <span></span>
+  </button>
+</div>
+<div class="ds-backdrop" onclick="document.body.classList.remove('menu-open')"></div>
+
 <!-- ===== SIDEBAR ===== -->
-<aside class="side">
+<aside class="side" onclick="if(event.target.tagName==='A'){document.body.classList.remove('menu-open');}">
   <div class="side-brand">
     L<em>u</em>rdex
     <div class="sub">M A G A Z I N N E</div>

@@ -345,6 +345,89 @@
       : '<li style="opacity:0.6;">Nenhum resultado encontrado.</li>';
   });
 
+  // -------- NEWSLETTER (web3forms) --------
+  const W3F_KEY = '6bf4280a-cdf2-4d61-a5c4-5a365625cc50';
+  const PAGE_NAMES = {
+    'index': 'Home — O mundo, dentro de casa',
+    'edicao-ix': 'Edição IX',
+    'edicao-x': 'Edição X',
+    'edicao-xi': 'Edição XI',
+    'edicao-xii': 'Edição XII · Outono MMXXVI',
+    'edicoes': 'Arquivo de Edições',
+    'casa': 'Casa',
+    'beleza': 'Beleza',
+    'moda': 'Moda',
+    'cozinha': 'Cozinha',
+    'living': 'Living',
+    'presentes': 'Presentes',
+    'produtos': 'Produtos',
+    'produto': 'Produto',
+    'marca': 'A Marca',
+    'manifesto': 'Manifesto',
+    'imprensa': 'Imprensa & Design System'
+  };
+  function friendlyPage() {
+    const file = (location.pathname.split('/').pop() || 'index.html').replace('.html', '') || 'index';
+    return PAGE_NAMES[file] || file;
+  }
+  function nowBR() {
+    try {
+      return new Intl.DateTimeFormat('pt-BR', {
+        dateStyle: 'long', timeStyle: 'short', timeZone: 'America/Sao_Paulo'
+      }).format(new Date()) + ' (Brasília)';
+    } catch {
+      return new Date().toISOString();
+    }
+  }
+  document.addEventListener('submit', async (e) => {
+    const form = e.target.closest('.newsletter-form');
+    if (!form) return;
+    e.preventDefault();
+    const emailInput = form.querySelector('input[type="email"]');
+    const email = (emailInput?.value || '').trim();
+    if (!email) return;
+    const btn = form.querySelector('button[type="submit"]');
+    const originalLabel = btn?.textContent;
+    if (btn) { btn.disabled = true; btn.textContent = 'Enviando…'; }
+    try {
+      const page = friendlyPage();
+      const when = nowBR();
+      const message =
+        `Uma nova assinante entrou para a carta da Lurdex Magazinne.\n\n` +
+        `• Email: ${email}\n` +
+        `• Origem: ${page}\n` +
+        `• Quando: ${when}\n\n` +
+        `— Lurdex Magazinne · O mundo, dentro de casa.`;
+      const payload = {
+        access_key: W3F_KEY,
+        subject: `✦ Nova assinante — ${page}`,
+        from_name: 'Lurdex Magazinne · Newsletter',
+        replyto: email,
+        'Email da assinante': email,
+        'Página de origem': page,
+        'Data e hora': when,
+        message,
+        botcheck: ''
+      };
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        const base = location.pathname.includes('/brand/') ? '../' : '';
+        location.href = `${base}obrigado.html?e=${encodeURIComponent(email)}`;
+      } else {
+        toast(data.message || 'Não foi possível assinar. Tente novamente.');
+        if (btn) { btn.disabled = false; btn.textContent = originalLabel; }
+      }
+    } catch {
+      toast('Sem conexão. Tente novamente em instantes.');
+      if (btn) { btn.disabled = false; btn.textContent = originalLabel; }
+    }
+  });
+
   // Initial render
   renderBag();
   // Hydrate any [data-ai-img] placeholders on the page (hero, tiles, feature art, etc.)

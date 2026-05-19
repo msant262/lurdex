@@ -82,8 +82,8 @@
     <div class="eyebrow" style="color: var(--lilac); margin-bottom: var(--s-4);">Próxima edição</div>
     <h2>Não perca a <em>próxima carta.</em></h2>
     <p>Assine para receber a Edição XIII em primeira mão — com acesso prioritário às peças numeradas.</p>
-    <form class="newsletter-form" onsubmit="event.preventDefault(); LURDEX.toast('Obrigada! Você está na lista.'); this.reset();">
-      <input type="email" required placeholder="seu@email.com.br" aria-label="Email">
+    <form class="newsletter-form" novalidate>
+      <input type="email" name="email" required placeholder="seu@email.com.br" aria-label="Email" autocomplete="email">
       <button class="btn btn-light" type="submit">Assinar</button>
     </form>
   </div>

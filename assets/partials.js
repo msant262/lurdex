@@ -80,7 +80,7 @@
             <li><a href="${at('manifesto.html')}"><em>Manifesto</em></a></li>
           </ul>
           <div class="menu-foot">
-            <span>contato@lurdexmagazinne.com.br</span>
+            <span>contato@lurdex.com.br</span>
             <span>@lurdex.magazinne</span>
             <span>São Paulo · Brasil</span>
           </div>
@@ -135,7 +135,7 @@
             <div>
               <h5>Contato</h5>
               <div>São Paulo · Brasil</div>
-              <div>contato@lurdexmagazinne.com.br</div>
+              <div>contato@lurdex.com.br</div>
             </div>
             <div class="foot-socials">
               <a href="#">Instagram</a>

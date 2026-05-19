@@ -226,8 +226,8 @@
     <div class="eyebrow" style="color: var(--lilac); margin-bottom: var(--s-4);">Carta aos curiosos</div>
     <h2>Receba a próxima <em>edição em casa.</em></h2>
     <p>Uma carta por estação. Sem ruído, sem urgência. Apenas a próxima curadoria, em primeira mão.</p>
-    <form class="newsletter-form" onsubmit="event.preventDefault(); LURDEX.toast('Obrigada! Você está na lista.'); this.reset();">
-      <input type="email" required placeholder="seu@email.com.br" aria-label="Email">
+    <form class="newsletter-form" novalidate>
+      <input type="email" name="email" required placeholder="seu@email.com.br" aria-label="Email" autocomplete="email">
       <button class="btn btn-light" type="submit">Assinar</button>
     </form>
     <div class="newsletter-perks">

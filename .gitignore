@@ -33,3 +33,10 @@ yarn-error.log*
 dist/
 build/
 *.log
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
